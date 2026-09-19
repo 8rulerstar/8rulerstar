@@ -3,13 +3,13 @@
 Private notes. This repository is the profile README; **if it is ever made public,
 move or delete this file first** (it contains interview prep, not profile copy).
 
-Last updated: 2026-09-19
+Last updated: 2026-09-20
 
 ## One-line version (résumé / portfolio)
 
-> **오픈소스 기여** — Kubernetes(문서 현지화), Sentry Python SDK(타입 어노테이션),
-> Canonical pycloudlib(mypy 오류 수정) 등 3건 머지. MobiFlight(React 컴포넌트 설계),
-> mocha(Node.js 모듈 로더 이슈 원인 분석), repowise(버그 수정 2건) 진행 중.
+> **오픈소스 기여** — Kubernetes(문서 현지화), mocha(통합 테스트), Sentry Python SDK
+> (타입 어노테이션), Canonical pycloudlib(mypy 오류 수정) 4건 머지. MobiFlight
+> (React 컴포넌트 설계), repowise(버그 수정 2건) 리뷰 대기.
 
 Update the counts as PRs land. Do **not** lead with Kubernetes on its own: the change
 is +3/−3 lines of Korean docs (`size/XS`). It earns its place as a recognisable name
@@ -52,9 +52,9 @@ under a big "Kubernetes contributor" claim reads it as padding.
 | open | [MobiFlight/MobiFlight-Connector#3385](https://github.com/MobiFlight/MobiFlight-Connector/pull/3385) | log level filter + standalone `FacetedFilterOptions`; waiting on reviewer (options A/B/C offered) |
 | open | [repowise-dev/repowise#2391](https://github.com/repowise-dev/repowise/pull/2391) | keep pathless symbol rows out of `get_answer`'s homonym union (fixes #2346) |
 | open | [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392) | report an unknown `search_codebase` mode instead of coercing it (fixes #2347) |
-| open | [mochajs/mocha#6356](https://github.com/mochajs/mocha/pull/6356) | `--import=tsx` integration test (closes #6341) |
+| merged 2026-09-20 | [mochajs/mocha#6356](https://github.com/mochajs/mocha/pull/6356) | `--import=tsx` integration test (closes #6341). Approved by mark-wiemer ("Thank you!"). |
 | open | [code-charity/youtube#4347](https://github.com/code-charity/youtube/pull/4347) | reset playback speed to 1x at the live head |
-| analysis | [mochajs/mocha#6214](https://github.com/mochajs/mocha/issues/6214#issuecomment-5725700517) | nyc vs node root cause; PR offered, waiting for maintainer to pick fix A or B |
+| analysis | [mochajs/mocha#6214](https://github.com/mochajs/mocha/issues/6214#issuecomment-5725700517) | nyc vs node root cause. mark-wiemer replied 2026-09-20: low priority, he needs to repro the exact behaviours himself, and invited a demonstration in the repo's new `/repro` folder with commits linked to the issue. Fix A vs B still undecided. |
 | analysis | [OHIF/Viewers#6277](https://github.com/OHIF/Viewers/issues/6277#issuecomment-5723635746) | reproduced the sync-scroll blinking bug on the public demo, identified the cause |
 | closed, not mine to fix | [newrelic-experimental/preflight#750](https://github.com/newrelic-experimental/preflight/pull/750) | maintainer: `good first issue` label was applied by mistake, work reserved internally |
 | closed, not mine to fix | [frappe/frappe-ui#1171](https://github.com/frappe/frappe-ui/pull/1171) | already fixed on main before my PR |
