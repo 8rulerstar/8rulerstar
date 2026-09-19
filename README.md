@@ -20,6 +20,10 @@ to intervene. Nine shapes, graded on how precisely you trace them.
 
 - [getsentry/sentry-python#7505](https://github.com/getsentry/sentry-python/pull/7505)
   — type annotations for databag limits in `serializer.py` (merged)
+- [canonical/pycloudlib#532](https://github.com/canonical/pycloudlib/pull/532)
+  — resolve a mypy `call-overload` error on Azure NIC creation (merged)
+- [kubernetes/website#57550](https://github.com/kubernetes/website/pull/57550)
+  — sync the Korean `configure-dns-cluster` page with the English one (merged)
 
 ### How I work
 
