@@ -24,6 +24,8 @@ to intervene. Nine shapes, graded on how precisely you trace them.
   — resolve a mypy `call-overload` error on Azure NIC creation (merged)
 - [kubernetes/website#57550](https://github.com/kubernetes/website/pull/57550)
   — sync the Korean `configure-dns-cluster` page with the English one (merged)
+- [mochajs/mocha#6356](https://github.com/mochajs/mocha/pull/6356)
+  — integration test covering `--import=tsx` (merged)
 
 ### How I work
 
