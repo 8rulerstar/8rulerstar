@@ -35,8 +35,13 @@ under a big "Kubernetes contributor" claim reads it as padding.
    `module._compile` with a two-argument function, dropping the `format` argument
    Node ≥22.18 / ≥24.3 uses to decide whether to strip TypeScript types
    (nodejs/node#58657). Reproduced it without nyc using a 10-line hook, and showed
-   c8 is unaffected. Proposed two fixes with trade-offs.
-   *Story: "found the exact mechanism in Node's loader source, with a minimal repro."*
+   c8 is unaffected. Proposed two fixes with trade-offs. When the maintainer said he
+   would need time to reproduce it himself, turned the analysis into a runnable
+   repro in the repo's `/repro` folder: a one-line `.ts` fixture, the nyc wrapper
+   reduced to the single line that matters, the same hook forwarding every argument
+   as a control, and a script that runs all seven cases and prints a table.
+   *Story: "found the exact mechanism in Node's loader source, then made it runnable
+   in one command so the maintainer didn't have to reproduce it himself."*
 
 3. **How I work** — every PR: reproduce first, prove new tests fail without the fix,
    run the project's own checks, read the maintainer's guidance and follow it to the
@@ -54,7 +59,7 @@ under a big "Kubernetes contributor" claim reads it as padding.
 | open | [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392) | report an unknown `search_codebase` mode instead of coercing it (fixes #2347) |
 | merged 2026-09-20 | [mochajs/mocha#6356](https://github.com/mochajs/mocha/pull/6356) | `--import=tsx` integration test (closes #6341). Approved by mark-wiemer ("Thank you!"). |
 | open | [code-charity/youtube#4347](https://github.com/code-charity/youtube/pull/4347) | reset playback speed to 1x at the live head |
-| analysis | [mochajs/mocha#6214](https://github.com/mochajs/mocha/issues/6214#issuecomment-5725700517) | nyc vs node root cause. mark-wiemer replied 2026-09-20: low priority, he needs to repro the exact behaviours himself, and invited a demonstration in the repo's new `/repro` folder with commits linked to the issue. Fix A vs B still undecided. |
+| analysis | [mochajs/mocha#6214](https://github.com/mochajs/mocha/issues/6214#issuecomment-5725700517) | nyc vs node root cause. mark-wiemer replied 2026-09-20 (low priority, needs to repro the behaviours himself) and invited a demonstration in the repo's new `/repro` folder. [Repro posted 2026-09-20](https://github.com/mochajs/mocha/issues/6214#issuecomment-5746165583): branch `repro/6214-nyc-drops-compile-format`, `npm run repro:6214` prints all seven cases. Fix A vs B still undecided — label moved to `status: needs review`, so do **not** open a fix PR until he picks one. |
 | analysis | [OHIF/Viewers#6277](https://github.com/OHIF/Viewers/issues/6277#issuecomment-5723635746) | reproduced the sync-scroll blinking bug on the public demo, identified the cause |
 | closed, not mine to fix | [newrelic-experimental/preflight#750](https://github.com/newrelic-experimental/preflight/pull/750) | maintainer: `good first issue` label was applied by mistake, work reserved internally |
 | closed, not mine to fix | [frappe/frappe-ui#1171](https://github.com/frappe/frappe-ui/pull/1171) | already fixed on main before my PR |
