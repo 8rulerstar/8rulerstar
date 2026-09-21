@@ -3,7 +3,7 @@
 Private notes. This repository is the profile README; **if it is ever made public,
 move or delete this file first** (it contains interview prep, not profile copy).
 
-Last updated: 2026-09-20
+Last updated: 2026-09-21
 
 ## One-line version (résumé / portfolio)
 
@@ -43,7 +43,20 @@ under a big "Kubernetes contributor" claim reads it as padding.
    *Story: "found the exact mechanism in Node's loader source, then made it runnable
    in one command so the maintainer didn't have to reproduce it himself."*
 
-3. **How I work** — every PR: reproduce first, prove new tests fail without the fix,
+3. **repowise #2347 — a race decided by reviewing someone else's PR.**
+   Another contributor opened [#2360](https://github.com/repowise-dev/repowise/pull/2360)
+   for the same issue half an hour after it was filed, an hour before I claimed it.
+   Reading their branch, I found that handing `mode` straight to the case-sensitive
+   validator would break `mode="Symbol"` — it works on main because `_resolve_mode`
+   lowercases its own input — so the fix would have been worse than the bug. I posted
+   that with a before/after run rather than an opinion. My #2392 lowercases before
+   validating and reports a real typo in the caller's own spelling, with tests pinning
+   both halves. The maintainer verified the point himself, made it the blocking issue
+   on #2360 and merged mine instead: this repo treats the claim comment on the issue,
+   not the PR timestamp, as what reserves the work.
+   *Story: "the review I left on a competing PR is what decided which one shipped."*
+
+4. **How I work** — every PR: reproduce first, prove new tests fail without the fix,
    run the project's own checks, read the maintainer's guidance and follow it to the
    letter, say plainly in the PR what changed and what I left alone.
 
@@ -63,6 +76,7 @@ under a big "Kubernetes contributor" claim reads it as padding.
 | analysis | [OHIF/Viewers#6277](https://github.com/OHIF/Viewers/issues/6277#issuecomment-5723635746) | reproduced the sync-scroll blinking bug on the public demo, identified the cause |
 | closed, not mine to fix | [newrelic-experimental/preflight#750](https://github.com/newrelic-experimental/preflight/pull/750) | maintainer: `good first issue` label was applied by mistake, work reserved internally |
 | closed, not mine to fix | [frappe/frappe-ui#1171](https://github.com/frappe/frappe-ui/pull/1171) | already fixed on main before my PR |
+| review on someone else's PR | [repowise-dev/repowise#2360](https://github.com/repowise-dev/repowise/pull/2360#issuecomment-5745281980) | competing fix for #2347, opened an hour before my claim. Flagged that it breaks `mode="Symbol"`, with a before/after run. Maintainer confirmed it, made it the blocking issue, and said #2392 is the one that merges (claim comment on the issue binds, not PR timestamp). |
 
 ## Local material (this PC only)
 
