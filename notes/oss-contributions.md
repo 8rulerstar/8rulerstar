@@ -76,7 +76,7 @@ under a big "Kubernetes contributor" claim reads it as padding.
 | analysis | [OHIF/Viewers#6277](https://github.com/OHIF/Viewers/issues/6277#issuecomment-5723635746) | reproduced the sync-scroll blinking bug on the public demo, identified the cause |
 | closed, not mine to fix | [newrelic-experimental/preflight#750](https://github.com/newrelic-experimental/preflight/pull/750) | maintainer: `good first issue` label was applied by mistake, work reserved internally |
 | closed, not mine to fix | [frappe/frappe-ui#1171](https://github.com/frappe/frappe-ui/pull/1171) | already fixed on main before my PR |
-| review on someone else's PR | [repowise-dev/repowise#2360](https://github.com/repowise-dev/repowise/pull/2360#issuecomment-5745281980) | competing fix for #2347, opened an hour before my claim. Flagged that it breaks `mode="Symbol"`, with a before/after run. Maintainer confirmed it, made it the blocking issue, and said #2392 is the one that merges (claim comment on the issue binds, not PR timestamp). |
+| review on someone else's PR | [repowise-dev/repowise#2360](https://github.com/repowise-dev/repowise/pull/2360#issuecomment-5725316252) | competing fix for #2347, opened an hour before my claim. Flagged that it breaks `mode="Symbol"`, with a before/after run. Maintainer confirmed it, made it the blocking issue, and said #2392 is the one that merges (claim comment on the issue binds, not PR timestamp). |
 
 ## Local material (this PC only)
 
