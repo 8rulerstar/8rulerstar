@@ -26,6 +26,10 @@ to intervene. Nine shapes, graded on how precisely you trace them.
   — sync the Korean `configure-dns-cluster` page with the English one (merged)
 - [mochajs/mocha#6356](https://github.com/mochajs/mocha/pull/6356)
   — integration test covering `--import=tsx` (merged)
+- [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233)
+  — re-enable the test suite for `SARIMAX` and `FreshPRINCE` (merged)
+- [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392)
+  — report an unrecognised `search_codebase` mode instead of silently coercing it (merged)
 
 ### How I work
 
