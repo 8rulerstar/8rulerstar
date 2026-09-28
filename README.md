@@ -30,6 +30,8 @@ to intervene. Nine shapes, graded on how precisely you trace them.
   — re-enable the test suite for `SARIMAX` and `FreshPRINCE` (merged)
 - [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392)
   — report an unrecognised `search_codebase` mode instead of silently coercing it (merged)
+- [repowise-dev/repowise#2391](https://github.com/repowise-dev/repowise/pull/2391)
+  — keep pathless symbol rows out of `get_answer`'s homonym union (merged)
 
 ### How I work
 

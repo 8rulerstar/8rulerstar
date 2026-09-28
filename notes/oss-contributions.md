@@ -3,13 +3,13 @@
 Private notes. This repository is the profile README; **if it is ever made public,
 move or delete this file first** (it contains interview prep, not profile copy).
 
-Last updated: 2026-09-23
+Last updated: 2026-09-28
 
 ## One-line version (résumé / portfolio)
 
 > **오픈소스 기여** — Kubernetes, repowise, sktime, mocha, Sentry Python SDK,
-> Canonical pycloudlib 6개 프로젝트에 PR 6건 머지. MobiFlight(React 컴포넌트 설계)
-> 외 4건 리뷰 대기.
+> Canonical pycloudlib 6개 프로젝트에 PR 7건 머지. MobiFlight(React 컴포넌트 설계)
+> 외 3건 리뷰 대기.
 
 Update the counts as PRs land. Do **not** lead with Kubernetes on its own: the change
 is +3/−3 lines of Korean docs (`size/XS`). It earns its place as a recognisable name
@@ -69,14 +69,14 @@ under a big "Kubernetes contributor" claim reads it as padding.
 | merged 2026-09-19 | [kubernetes/website#57550](https://github.com/kubernetes/website/pull/57550) | `[ko]` sync `configure-dns-cluster.md` with the English page: dead link, mistranslation ("모든" → "대부분의"), localization-guide style. +3/−3. |
 | merged | [getsentry/sentry-python#7505](https://github.com/getsentry/sentry-python/pull/7505) | type annotations for databag limits in `serializer.py` |
 | merged | [canonical/pycloudlib#532](https://github.com/canonical/pycloudlib/pull/532) | resolve mypy `call-overload` error on Azure NIC creation (fixes #531) |
-| open | [MobiFlight/MobiFlight-Connector#3385](https://github.com/MobiFlight/MobiFlight-Connector/pull/3385) | log level filter + standalone `FacetedFilterOptions`; waiting on reviewer (options A/B/C offered) |
+| open | [MobiFlight/MobiFlight-Connector#3385](https://github.com/MobiFlight/MobiFlight-Connector/pull/3385) | log level filter + standalone `FacetedFilterOptions`; waiting on reviewer (options A/B/C offered); no maintainer reply since 2026-09-18, CI green |
 | merged 2026-09-23 | [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392) | report an unknown `search_codebase` mode instead of coercing it (fixes #2347). Heads-up from the maintainer: a follow-up moves the mode routing into a `_query_shape` module, so `_VALID_MODES` will be imported from there — nothing to change on our side. |
 | merged 2026-09-21 | [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233) | remove `tests:skip_all` from `SARIMAX` and `FreshPRINCE` (merged by fkiraly) |
-| open | [repowise-dev/repowise#2391](https://github.com/repowise-dev/repowise/pull/2391) | keep pathless symbol rows out of `get_answer`'s homonym union (fixes #2346). CI green across 3.11/3.12/3.13 since 2026-09-21; no human review yet. |
-| open | [sktime/sktime#11229](https://github.com/sktime/sktime/pull/11229) | honour `tests:skip_all` in the VM test path (see issue #11227, claimed 2026-09-21); rebased 2026-09-23 |
-| open | [kubernetes/website#57649](https://github.com/kubernetes/website/pull/57649) | `[ko]` update `pid-limiting.md` (issue #57648). Netlify + EasyCLA green; tide waiting on `lgtm` / `approved`. |
+| merged 2026-09-24 | [repowise-dev/repowise#2391](https://github.com/repowise-dev/repowise/pull/2391) | keep pathless symbol rows out of `get_answer`'s homonym union (fixes #2346). Approved by RaghavChamadiya: dropping the rows once at `by_name` construction is "the narrowest place that covers the anchor and both union branches", and the tests drive both branches separately. |
+| open | [sktime/sktime#11229](https://github.com/sktime/sktime/pull/11229) | honour `tests:skip_all` in the VM test path (see issue #11227, claimed 2026-09-21); rebased 2026-09-23. Still `CHANGES_REQUESTED` with no reply since; CI never ran (first-time contributor approval). No conflict with main as of 2026-09-28. |
+| open | [kubernetes/website#57649](https://github.com/kubernetes/website/pull/57649) | `[ko]` update `pid-limiting.md` (issue #57648). Netlify + EasyCLA green; Review by BcKmini 2026-09-27 (4 suggestions: "limit" as 제한 throughout, "machine" not "system", the "sibling to" sense, 파라미터 per the glossary). All four applied in `74cf9bf` plus four related wording fixes, replied the same day. Waiting on `lgtm` / `approved` (eundms). |
 | merged 2026-09-20 | [mochajs/mocha#6356](https://github.com/mochajs/mocha/pull/6356) | `--import=tsx` integration test (closes #6341). Approved by mark-wiemer ("Thank you!"). |
-| open | [code-charity/youtube#4347](https://github.com/code-charity/youtube/pull/4347) | reset playback speed to 1x at the live head |
+| open | [code-charity/youtube#4347](https://github.com/code-charity/youtube/pull/4347) | reset playback speed to 1x at the live head. Review by wahajahmed010 2026-09-23: LGTM, optional test for the `closest()` fallback. Added two tests 2026-09-24 (`6f16205`), including one where the fallback player is set to show it actually resets the speed; suite 124/124 green locally. CI waits on workflow approval. |
 | analysis | [mochajs/mocha#6214](https://github.com/mochajs/mocha/issues/6214#issuecomment-5725700517) | nyc vs node root cause. mark-wiemer replied 2026-09-20 (low priority, needs to repro the behaviours himself) and invited a demonstration in the repo's new `/repro` folder. [Repro posted 2026-09-20](https://github.com/mochajs/mocha/issues/6214#issuecomment-5746165583): branch `repro/6214-nyc-drops-compile-format`, `npm run repro:6214` prints all seven cases. Fix A vs B still undecided — label moved to `status: needs review`, so do **not** open a fix PR until he picks one. |
 | analysis | [OHIF/Viewers#6277](https://github.com/OHIF/Viewers/issues/6277#issuecomment-5723635746) | reproduced the sync-scroll blinking bug on the public demo, identified the cause |
 | closed, not mine to fix | [newrelic-experimental/preflight#750](https://github.com/newrelic-experimental/preflight/pull/750) | maintainer: `good first issue` label was applied by mistake, work reserved internally |
