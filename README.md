@@ -1,6 +1,6 @@
 ## Hi, I'm Byungkun Jang
 
-Thank you for stopping by. I'm a university student in Seoul. I build computer
+Thank you for stopping by. I'm a university student in Korea. I build computer
 vision and machine learning tools, and I'm especially interested in how accurate
 the measurements from pose models really are.
 
