@@ -1,6 +1,6 @@
-## Hi, I'm Byungkun Jang
+## Hi there, I'm Byungkun Jang 👋
 
-I'm a university student in Korea. I build computer vision and machine learning
+Thanks for dropping by! I'm a university student in Korea. I build computer vision and machine learning
 tools, and I'm especially interested in how much you can trust the measurements
 taken from pose estimation models. I also like making games.
 
@@ -39,5 +39,8 @@ account: point it at the folder your runs already write to.<br>
   Hosts still used by other connections keep it.
 
 [See all merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar&type=pullrequests)
+
+If you're working on pose estimation, building games, or just want to talk about
+either, I'd love to hear from you. Questions and feedback are always welcome.
 
 **Contact**: bkbkjang@gmail.com
