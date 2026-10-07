@@ -2,9 +2,9 @@
 
 I'm a university student in Korea. I build computer vision and machine learning
 tools, and I'm especially interested in how much you can trust the measurements
-taken from pose estimation models.
+taken from pose estimation models. I'm also interested in making games.
 
-한국에서 대학에 다니며, pose 추정 모델이 내놓는 측정값을 얼마나 믿을 수 있는지에 관심을 두고 관련 도구를 만듭니다.
+한국에서 대학에 다니며, pose 추정 모델이 내놓는 측정값을 얼마나 믿을 수 있는지에 관심을 두고 관련 도구를 만듭니다. 게임 만들기에도 관심이 있습니다.
 
 ### Projects
 
