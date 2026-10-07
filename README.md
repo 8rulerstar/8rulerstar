@@ -23,21 +23,26 @@ small arms get far worse elbow angles than large ones, which a good mAP hides.
   read the box of YOLO pose labels instead of parsing the row as a polygon.
   Merged and credited in the [0.30.8 release notes](https://github.com/roboflow/supervision/releases/tag/0.30.8)
 - [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233):
-  re-enable the test suite for `SARIMAX` and `FreshPRINCE`, a follow-up the maintainer asked for
+  re-enable the test suite for `SARIMAX` and `FreshPRINCE`, a follow-up the maintainer asked for.
+  Listed among contributors in the [v1.2.0 release](https://github.com/sktime/sktime/releases/tag/v1.2.0)
 - [mochajs/mocha#6356](https://github.com/mochajs/mocha/pull/6356):
   integration test covering `--import=tsx`
 - [MODSetter/SurfSense#2027](https://github.com/MODSetter/SurfSense/pull/2027):
-  withdraw a host's egress grant when its last connection is deleted
+  withdraw a host's egress grant when its last connection is deleted.
+  Credited in the [v2.1.0 release notes](https://github.com/MODSetter/SurfSense/releases/tag/v2.1.0)
 - [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392),
   [#2391](https://github.com/repowise-dev/repowise/pull/2391):
   report an unknown `search_codebase` mode instead of coercing it; keep pathless
-  symbols out of `get_answer`'s homonym union
+  symbols out of `get_answer`'s homonym union.
+  Credited in the [v0.53.0 release notes](https://github.com/repowise-dev/repowise/releases/tag/v0.53.0)
 - [kubernetes/website#57550](https://github.com/kubernetes/website/pull/57550),
   [#57649](https://github.com/kubernetes/website/pull/57649):
   keep Korean docs in sync with English (DNS configuration, PID limiting)
-- [getsentry/sentry-python#7505](https://github.com/getsentry/sentry-python/pull/7505),
-  [canonical/pycloudlib#532](https://github.com/canonical/pycloudlib/pull/532):
-  type annotations and a mypy fix
+- [getsentry/sentry-python#7505](https://github.com/getsentry/sentry-python/pull/7505):
+  type annotations for the serializer's databag limits.
+  Credited in the [2.69.2 release notes](https://github.com/getsentry/sentry-python/releases/tag/2.69.2)
+- [canonical/pycloudlib#532](https://github.com/canonical/pycloudlib/pull/532):
+  resolve a mypy `call-overload` error on Azure NIC creation
 
 [All merged pull requests](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged&type=pullrequests)
 
