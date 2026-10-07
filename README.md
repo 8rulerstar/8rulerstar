@@ -1,26 +1,27 @@
-## Hi, I'm 8rulerstar
+## Hi, I'm Byungkun Jang
 
-I build small games and the tooling that keeps them honest: simulators and
-checkers that let me verify a design decision without opening the editor.
+I build games and machine learning tools, and the checks that keep them honest:
+harnesses that test a design decision without opening the editor, and audits that
+show what a model's headline score leaves out.
 
 ### Projects
 
-**[Stella Ball](https://github.com/8rulerstar/stella-ball)** · JavaScript, Canvas
+**[Stella Ball](https://github.com/8rulerstar/stella-ball)** · JavaScript, Canvas<br>
 A browser action-strategy prototype. Roll a meteor and three starkeepers around
 a top-down billiards battlefield, then choose each shot whether the starlight you
-made goes into aim or into a constellation.
+made goes into aim or into a constellation.<br>
 → [Play on itch.io](https://8rulerstar.itch.io/stella-ball)
 
-**[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python
+**[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python<br>
 Checks how far off the angles, tilts and lengths you read from a pose model are,
 not just whether its keypoints land near the labels. On YOLO11n-pose against COCO,
-small arms get far worse elbow angles than large ones, which a good mAP hides.
+small arms get far worse elbow angles than large ones, which a good mAP hides.<br>
 → [PyPI](https://pypi.org/project/poseaudit/)
 
-**[Epokio](https://github.com/8rulerstar/epokio)** · Python
+**[Epokio](https://github.com/8rulerstar/epokio)** · Python<br>
 Watches ML training runs on your machine or a remote GPU server from the macOS
 menu bar, or a web page on Windows, Linux and your phone. No code changes and no
-account: point it at the folder your runs already write to.
+account: point it at the folder your runs already write to.<br>
 → [PyPI](https://pypi.org/project/epokio/)
 
 ### Open source
@@ -54,5 +55,8 @@ see. Its report says plainly that it measures outcomes (clear rate, damage,
 shape recognition) and not feel, pacing or frame stability, and that its clear
 rates assume a player with no weapons equipped. A number is only useful if you
 know what it left out.
+
+poseaudit comes from the same habit: a pose model can score a good mAP while the
+angles you compute from its keypoints are badly off, and it measures how far.
 
 Always happy to chat about any of this. Feel free to open an issue or say hi.
