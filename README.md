@@ -1,9 +1,8 @@
 ## Hi, I'm Byungkun Jang
 
-Thank you for stopping by. I work on computer vision and machine learning tools,
-and I try to pair them with checks that show whether they really work: audits of
-what a model's headline score might leave out, and harnesses that test a change
-against the real code path.
+Thank you for stopping by. I'm a university student in Seoul. I build computer
+vision and machine learning tools, and I'm especially interested in how accurate
+the measurements from pose models really are.
 
 ### Projects
 
@@ -30,9 +29,10 @@ prototype ([play on itch.io](https://8rulerstar.itch.io/stella-ball)).
   the [0.30.8 release notes](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 - [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233):
   re-enabled the tests of two estimators that were skipped by mistake, a follow-up
-  the maintainer kindly suggested while reviewing my fix for the VM test path.
-- [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392):
-  report an unknown search mode instead of silently coercing it.
+  the maintainer suggested while reviewing my fix for the VM test path.
+- [MODSetter/SurfSense#2027](https://github.com/MODSetter/SurfSense/pull/2027):
+  when the last connection to a host is deleted, its network access grant is now
+  withdrawn too, while hosts still shared by other connections keep theirs.
 
 [All merged pull requests](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged&type=pullrequests)
 
