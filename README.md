@@ -1,8 +1,9 @@
 ## Hi, I'm Byungkun Jang
 
-I build computer vision and machine learning tools, and the checks that show
-whether they actually work: audits that reveal what a model's headline score
-leaves out, and harnesses that test a change against the real code path.
+Thank you for stopping by. I work on computer vision and machine learning tools,
+and I try to pair them with checks that show whether they really work: audits of
+what a model's headline score might leave out, and harnesses that test a change
+against the real code path.
 
 ### Projects
 
@@ -29,17 +30,17 @@ prototype ([play on itch.io](https://8rulerstar.itch.io/stella-ball)).
   the [0.30.8 release notes](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 - [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233):
   re-enabled the tests of two estimators that were skipped by mistake, a follow-up
-  the maintainer asked for while reviewing my fix for the VM test path.
+  the maintainer kindly suggested while reviewing my fix for the VM test path.
 - [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392):
-  report an unknown search mode instead of silently coercing it. My review of a
-  competing PR showed it would break existing calls, and the maintainer merged this one.
+  report an unknown search mode instead of silently coercing it. I also reviewed a
+  related PR and noted a case it would break; the maintainers kindly went with this one.
 
 [All merged pull requests](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged&type=pullrequests)
 
 ### How I work
 
-I like knowing whether a change actually did anything, and what a number leaves
-out. poseaudit comes from that: a pose model can score a good mAP while the angles
+I care about knowing whether a change actually did anything, and what a number
+might leave out. poseaudit comes from that: a pose model can score a good mAP while the angles
 you compute from its keypoints are badly off, so it measures how far, by segment
 size, and says which readings it could not score.
 
@@ -47,4 +48,5 @@ The same habit shows up elsewhere. Stella Ball has a headless runner that drives
 the game's real update loop, so a design question gets answered from the code the
 browser runs, with its report stating what it does not measure.
 
-Always happy to chat about any of this. Feel free to open an issue or say hi.
+If any of this is useful to you, I would be glad to hear from you. Questions,
+feedback and corrections are always welcome through issues.
