@@ -1,16 +1,10 @@
 ## Hi, I'm Byungkun Jang
 
-I build games and machine learning tools, and the checks that keep them honest:
-harnesses that test a design decision without opening the editor, and audits that
-show what a model's headline score leaves out.
+I build computer vision and machine learning tools, and the checks that show
+whether they actually work: audits that reveal what a model's headline score
+leaves out, and harnesses that test a change against the real code path.
 
 ### Projects
-
-**[Stella Ball](https://github.com/8rulerstar/stella-ball)** · JavaScript, Canvas<br>
-A browser action-strategy prototype. Roll a meteor and three starkeepers around
-a top-down billiards battlefield, then choose each shot whether the starlight you
-made goes into aim or into a constellation.<br>
-→ [Play on itch.io](https://8rulerstar.itch.io/stella-ball)
 
 **[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python<br>
 Checks how far off the angles, tilts and lengths you read from a pose model are,
@@ -23,6 +17,9 @@ Watches ML training runs on your machine or a remote GPU server from the macOS
 menu bar, or a web page on Windows, Linux and your phone. No code changes and no
 account: point it at the folder your runs already write to.<br>
 → [PyPI](https://pypi.org/project/epokio/)
+
+Also: [Stella Ball](https://github.com/8rulerstar/stella-ball), a small browser game
+prototype ([play on itch.io](https://8rulerstar.itch.io/stella-ball)).
 
 ### Open source
 
@@ -41,22 +38,13 @@ account: point it at the folder your runs already write to.<br>
 
 ### How I work
 
-I like knowing whether a change actually did anything, so most of my projects end
-up with a small harness beside them.
+I like knowing whether a change actually did anything, and what a number leaves
+out. poseaudit comes from that: a pose model can score a good mAP while the angles
+you compute from its keypoints are badly off, so it measures how far, by segment
+size, and says which readings it could not score.
 
-Stella Ball has one: a headless runner that drives the game's real `update`
-functions at a fixed timestep, plus 34 probe scripts. So "is stage 5 still
-clearable without a weapon?" is a question I can answer in a few seconds, from the
-same code the browser runs, not from a physics model I rewrote for testing and
-would have to keep in sync.
-
-The part I care about just as much is writing down what the harness *doesn't*
-see. Its report says plainly that it measures outcomes (clear rate, damage,
-shape recognition) and not feel, pacing or frame stability, and that its clear
-rates assume a player with no weapons equipped. A number is only useful if you
-know what it left out.
-
-poseaudit comes from the same habit: a pose model can score a good mAP while the
-angles you compute from its keypoints are badly off, and it measures how far.
+The same habit shows up elsewhere. Stella Ball has a headless runner that drives
+the game's real update loop, so a design question gets answered from the code the
+browser runs, with its report stating what it does not measure.
 
 Always happy to chat about any of this. Feel free to open an issue or say hi.
