@@ -32,8 +32,7 @@ prototype ([play on itch.io](https://8rulerstar.itch.io/stella-ball)).
   re-enabled the tests of two estimators that were skipped by mistake, a follow-up
   the maintainer kindly suggested while reviewing my fix for the VM test path.
 - [repowise-dev/repowise#2392](https://github.com/repowise-dev/repowise/pull/2392):
-  report an unknown search mode instead of silently coercing it. I also reviewed a
-  related PR and noted a case it would break; the maintainers kindly went with this one.
+  report an unknown search mode instead of silently coercing it.
 
 [All merged pull requests](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged&type=pullrequests)
 
