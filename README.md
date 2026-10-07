@@ -22,6 +22,9 @@ menu bar, or from a browser on Windows, Linux or your phone. No code changes and
 account: point it at the folder your runs already write to.<br>
 [PyPI →](https://pypi.org/project/epokio/)
 
+(Also a small browser game: [Stella Ball](https://github.com/8rulerstar/stella-ball),
+[play on itch.io](https://8rulerstar.itch.io/stella-ball).)
+
 ### Open source
 
 - [roboflow/supervision#2655](https://github.com/roboflow/supervision/pull/2655):
