@@ -17,6 +17,12 @@ not just whether its keypoints land near the labels. On YOLO11n-pose against COC
 small arms get far worse elbow angles than large ones, which a good mAP hides.
 → [PyPI](https://pypi.org/project/poseaudit/)
 
+**[Epokio](https://github.com/8rulerstar/epokio)** · Python
+Watches ML training runs on your machine or a remote GPU server from the macOS
+menu bar, or a web page on Windows, Linux and your phone. No code changes and no
+account: point it at the folder your runs already write to.
+→ [PyPI](https://pypi.org/project/epokio/)
+
 ### Open source
 
 - [roboflow/supervision#2655](https://github.com/roboflow/supervision/pull/2655):
