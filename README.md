@@ -2,15 +2,15 @@
 
 I'm a university student in Korea. I build computer vision and machine learning
 tools, and I'm especially interested in how accurate the measurements from pose
-models really are.
+estimation models really are.
 
 ### Projects
 
 **[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python<br>
-Checks how far off the angles, tilts and lengths you read from a pose model are,
-not just whether its keypoints land near the labels. On YOLO11n-pose against COCO,
-58% of elbow angles are off by 15° or more when the arm segments are under 30 px,
-against 26% above 60 px.<br>
+Checks how far off the angles, tilts and lengths you read from the keypoints of a
+pose estimation model are, not just whether the keypoints land near the labels.
+On YOLO11n-pose against COCO, the share of elbow angles off by 15° or more is 58%
+when the arm segments average under 30 px, 37% at 30 to 60 px and 26% above 60 px.<br>
 → [PyPI](https://pypi.org/project/poseaudit/)
 
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python<br>
@@ -33,10 +33,3 @@ account: point it at the folder your runs already write to.<br>
   withdrawn too, while hosts still shared by other connections keep theirs.
 
 [All merged pull requests](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar&type=pullrequests)
-
-### How I work
-
-I like to check whether a change did what it was meant to, on real data. poseaudit
-came from that: a pose model can score a good mAP while the angles computed from
-its keypoints are badly off, so it reports the error by segment size and lists the
-readings it could not score.
