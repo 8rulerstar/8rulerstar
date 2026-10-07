@@ -33,3 +33,5 @@ account: point it at the folder your runs already write to.<br>
   withdrawn too, while hosts still shared by other connections keep theirs.
 
 [All merged pull requests](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar&type=pullrequests)
+
+Contact: bkbkjang@gmail.com
