@@ -8,16 +8,17 @@ taken from pose estimation models.
 
 **[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python<br>
 Measures how far angles, tilts and lengths derived from pose keypoints disagree
-with the labels, not just whether the keypoints land near them. With YOLO11n-pose on 200 COCO
-val2017 images, 58% of elbow angles are off by 15° or more when the arm segments
-average under 30 px, compared with 37% at 30 to 60 px and 26% above 60 px.<br>
-→ [PyPI](https://pypi.org/project/poseaudit/)
+with the labels, not just whether the keypoints land near them. With YOLO11n-pose
+on 322 elbows from 200 COCO val2017 images, 58% of elbow angles are off by 15° or
+more when the arm segments average under 30 px (37% at 30 to 60 px, 26% above
+60 px).<br>
+[PyPI →](https://pypi.org/project/poseaudit/)
 
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python<br>
 Watches ML training runs on your machine or a remote GPU server from the macOS
 menu bar, or from a browser on Windows, Linux or your phone. No code changes and no
 account: point it at the folder your runs already write to.<br>
-→ [PyPI](https://pypi.org/project/epokio/)
+[PyPI →](https://pypi.org/project/epokio/)
 
 ### Open source
 
@@ -26,12 +27,12 @@ account: point it at the folder your runs already write to.<br>
   It now reads the box and skips the keypoints. Released in
   [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 - [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233):
-  re-enabled tests for two estimators that were skipped by mistake, a follow-up the
+  Re-enabled tests for two estimators that were skipped by mistake, a follow-up the
   maintainer requested while reviewing my other (still open) PR.
 - [MODSetter/SurfSense#2027](https://github.com/MODSetter/SurfSense/pull/2027):
-  deleting the last connection to a host now also revokes its network access;
-  hosts still used by other connections keep it.
+  Deleting the last connection to a host now also revokes its network access.
+  Hosts still used by other connections keep it.
 
 [See all merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar&type=pullrequests)
 
-Contact: bkbkjang@gmail.com
+**Contact**: bkbkjang@gmail.com
