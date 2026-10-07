@@ -11,11 +11,6 @@ a top-down billiards battlefield, then choose each shot whether the starlight yo
 made goes into aim or into a constellation.
 → [Play on itch.io](https://8rulerstar.itch.io/stella-ball)
 
-**[RuneCast](https://github.com/8rulerstar/RuneCast)** · Unity 6, C#
-A real-time gesture auto-battler. Your heroes fight on their own; you draw runes
-to intervene. Nine shapes, graded on how precisely you trace them.
-→ [Play on itch.io](https://8rulerstar.itch.io/runecast)
-
 **[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python
 Checks how far off the angles, tilts and lengths you read from a pose model are,
 not just whether its keypoints land near the labels. On YOLO11n-pose against COCO,
