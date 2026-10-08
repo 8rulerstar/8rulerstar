@@ -37,6 +37,10 @@ account: point it at the folder your runs already write to.<br>
   `from_yolo` parsed whole YOLO pose label rows as polygons, giving wrong boxes.
   It now reads the box and skips the keypoints. Released in
   [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
+- [ultralytics/ultralytics#26564](https://github.com/ultralytics/ultralytics/pull/26564):
+  Found why pose validation scored lower than COCO's own evaluation: people with
+  no labeled keypoint were kept. Merged as a fix in `convert_coco`, which raises
+  pose mAP50-95 on my 200-image sample from 0.347 to 0.576.
 - [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233):
   Re-enabled tests for two estimators that were skipped by mistake, a follow-up the
   maintainer requested while reviewing my other (still open) PR.
