@@ -27,6 +27,12 @@ account: point it at the folder your runs already write to.<br>
 
 ### Open source
 
+- [ultralytics/ultralytics#26564](https://github.com/ultralytics/ultralytics/pull/26564):
+  `convert_coco(use_keypoints=True)` kept people with no labelled keypoints, so pose
+  validation counted them as targets. On a 200-image COCO val2017 sample, pose mAP50-95
+  for yolo26n-pose goes from 0.347 to 0.576, matching pycocotools. I found and reproduced
+  it in [#26563](https://github.com/ultralytics/ultralytics/issues/26563); the maintainer
+  merged it as a smaller fix at the source.
 - [roboflow/supervision#2655](https://github.com/roboflow/supervision/pull/2655):
   `from_yolo` parsed whole YOLO pose label rows as polygons, giving wrong boxes.
   It now reads the box and skips the keypoints. Released in
