@@ -27,6 +27,10 @@ account: point it at the folder your runs already write to.<br>
 
 ### Open source
 
+- [roboflow/supervision#2687](https://github.com/roboflow/supervision/pull/2687):
+  added `sv.metrics.KeypointMeanAveragePrecision`, COCO keypoint mAP using Object
+  Keypoint Similarity for `sv.KeyPoints`. Its AP, AP50, AP75, APm and APl agree with
+  `pycocotools` to within about 1e-8 on synthetic tests.
 - [ultralytics/ultralytics#26564](https://github.com/ultralytics/ultralytics/pull/26564):
   `convert_coco(use_keypoints=True)` kept people with no labelled keypoints, so pose
   validation counted them as targets. On a 200-image COCO val2017 sample, pose mAP50-95
