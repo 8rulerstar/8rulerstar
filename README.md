@@ -6,6 +6,23 @@ taken from pose estimation models. I also like making games.
 
 한국에서 컴퓨터 비전과 머신러닝 도구를 만듭니다. 특히 포즈 추정 모델의 측정값을 얼마나 믿을 수 있는지에 관심이 많고, 게임 만들기도 좋아합니다.
 
+### Highlights: pose estimation evaluation
+
+**Ultralytics (YOLO)** · [ultralytics/ultralytics#26564](https://github.com/ultralytics/ultralytics/pull/26564)<br>
+Found that `convert_coco(use_keypoints=True)` kept people with no labelled keypoints,
+so YOLO pose validation counted them as targets. On a 200-image COCO val2017 sample,
+pose mAP50-95 for yolo26n-pose goes from 0.347 to 0.576, matching pycocotools.
+I reported and reproduced it in [#26563](https://github.com/ultralytics/ultralytics/issues/26563),
+and the maintainers merged it as a smaller fix at the source.
+
+**supervision (Roboflow)** · [roboflow/supervision#2687](https://github.com/roboflow/supervision/pull/2687)<br>
+Added `sv.metrics.KeypointMeanAveragePrecision`, the first pose metric in supervision:
+COCO keypoint mAP using Object Keypoint Similarity for `sv.KeyPoints`. Its AP, AP50,
+AP75, APm and APl agree with pycocotools to within about 1e-8 on synthetic tests.
+Before that I fixed `from_yolo` reading pose labels as polygons
+([#2655](https://github.com/roboflow/supervision/pull/2655), released in
+[0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8)).
+
 ### Projects
 
 **[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python<br>
@@ -17,30 +34,17 @@ COCO's labels by 15° or more when the arm segments average under 30 px (37% at
 [PyPI →](https://pypi.org/project/poseaudit/)
 
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python<br>
-Watches ML training runs on your machine or a remote GPU server from the macOS
-menu bar, or from a browser on Windows, Linux or your phone. No code changes and no
-account: point it at the folder your runs already write to.<br>
+Sends a phone alert when an ML training run on your machine or a GPU server stalls,
+hits NaN or finishes. It reads the logs your runs already write (Ultralytics, Hugging Face,
+Lightning, Keras, TensorBoard), with no code changes and no account. Web page, terminal
+view and a macOS menu bar app.<br>
 [PyPI →](https://pypi.org/project/epokio/)
 
 (Also a small browser game: [Stella Ball](https://github.com/8rulerstar/stella-ball),
 [Play on itch.io](https://8rulerstar.itch.io/stella-ball).)
 
-### Open source
+### More open source
 
-- [roboflow/supervision#2687](https://github.com/roboflow/supervision/pull/2687):
-  added `sv.metrics.KeypointMeanAveragePrecision`, COCO keypoint mAP using Object
-  Keypoint Similarity for `sv.KeyPoints`. Its AP, AP50, AP75, APm and APl agree with
-  `pycocotools` to within about 1e-8 on synthetic tests.
-- [ultralytics/ultralytics#26564](https://github.com/ultralytics/ultralytics/pull/26564):
-  `convert_coco(use_keypoints=True)` kept people with no labelled keypoints, so pose
-  validation counted them as targets. On a 200-image COCO val2017 sample, pose mAP50-95
-  for yolo26n-pose goes from 0.347 to 0.576, matching pycocotools. I found and reproduced
-  it in [#26563](https://github.com/ultralytics/ultralytics/issues/26563); the maintainer
-  merged it as a smaller fix at the source.
-- [roboflow/supervision#2655](https://github.com/roboflow/supervision/pull/2655):
-  `from_yolo` parsed whole YOLO pose label rows as polygons, giving wrong boxes.
-  It now reads the box and skips the keypoints. Released in
-  [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 - [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233):
   Re-enabled tests for two estimators that were skipped by mistake, a follow-up the
   maintainer requested while reviewing my other (still open) PR.
