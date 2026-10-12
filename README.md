@@ -16,7 +16,7 @@ I reported and reproduced it in [#26563](https://github.com/ultralytics/ultralyt
 and the maintainers merged it as a smaller fix at the source.
 
 **supervision (Roboflow)** · [roboflow/supervision#2687](https://github.com/roboflow/supervision/pull/2687)<br>
-Added `sv.metrics.KeypointMeanAveragePrecision`, the first pose metric in supervision:
+Added `sv.metrics.KeyPointMeanAveragePrecision`, the first pose metric in supervision:
 COCO keypoint mAP using Object Keypoint Similarity for `sv.KeyPoints`. Its AP, AP50,
 AP75, APm and APl agree with pycocotools to within about 1e-8 on synthetic tests.
 Before that I fixed `from_yolo` reading pose labels as polygons
