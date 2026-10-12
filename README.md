@@ -45,6 +45,10 @@ view and a macOS menu bar app.<br>
 
 ### More open source
 
+- [ultralytics/ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635):
+  Since a 2025 change, every DataLoader worker drew the same Albumentations augmentations,
+  so training saw roughly 1/workers as many distinct draws. Each worker now seeds them
+  from its own seed ([#26634](https://github.com/ultralytics/ultralytics/issues/26634)).
 - [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233):
   Re-enabled tests for two estimators that were skipped by mistake, a follow-up the
   maintainer requested while reviewing my other (still open) PR.
