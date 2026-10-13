@@ -40,7 +40,9 @@ Lightning, Keras, TensorBoard), with no code changes and no account. Web page, t
 view and a macOS menu bar app.<br>
 [PyPI →](https://pypi.org/project/epokio/)
 
-(Also a small browser game: [Stella Ball](https://github.com/8rulerstar/stella-ball),
+(Also [lidtilt](https://github.com/8rulerstar/lidtilt), which reads the MacBook lid angle
+sensor to remove the lid's tilt from webcam head pitch, and a small browser game:
+[Stella Ball](https://github.com/8rulerstar/stella-ball),
 [Play on itch.io](https://8rulerstar.itch.io/stella-ball).)
 
 ### More open source
