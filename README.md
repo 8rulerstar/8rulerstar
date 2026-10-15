@@ -54,9 +54,10 @@ sensor to remove the lid's tilt from webcam head pitch, and a small browser game
 - [sktime/sktime#11233](https://github.com/sktime/sktime/pull/11233):
   Re-enabled tests for two estimators that were skipped by mistake, a follow-up the
   maintainer requested while reviewing my other (still open) PR.
-- [MODSetter/SurfSense#2027](https://github.com/MODSetter/SurfSense/pull/2027):
-  Deleting the last connection to a host now also revokes its network access.
-  Hosts still used by other connections keep it.
+- [morluto/rea#3079](https://github.com/morluto/rea/pull/3079):
+  Comparing two .NET assemblies paired same-named nested types from different
+  enclosing types, so real changes were reported as unchanged. Members are now
+  paired by their enclosing types; the maintainers extended the fix before merging.
 
 [See all merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar&type=pullrequests)
 
