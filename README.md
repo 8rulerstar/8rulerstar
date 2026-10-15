@@ -33,6 +33,9 @@ COCO's labels by 15° or more when the arm segments average under 30 px (37% at
 30 to 60 px, 26% above 60 px). Part of that is the labels' own noise.<br>
 [PyPI →](https://pypi.org/project/poseaudit/)
 
+<p><img src="assets/poseaudit.gif" width="560" alt="poseaudit: COCO label and yolo11n-pose elbow angles on three photos, then the share of elbows off by 15° or more by arm size">
+<br><sub>Photos: COCO val2017, CC BY 4.0</sub></p>
+
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python<br>
 Sends a phone alert when an ML training run on your machine or a GPU server stalls,
 hits NaN or finishes. It reads the logs your runs already write (Ultralytics, Hugging Face,
@@ -40,10 +43,22 @@ Lightning, Keras, TensorBoard), with no code changes and no account. Web page, t
 view and a macOS menu bar app.<br>
 [PyPI →](https://pypi.org/project/epokio/)
 
-(Also [lidtilt](https://github.com/8rulerstar/lidtilt), which reads the MacBook lid angle
-sensor to remove the lid's tilt from webcam head pitch, and a small browser game:
-[Stella Ball](https://github.com/8rulerstar/stella-ball),
-[Play on itch.io](https://8rulerstar.itch.io/stella-ball).)
+<p><img src="assets/epokio.gif" width="560" alt="Epokio: a training run stalls, the web page marks it Stalled and the phone gets an alert"></p>
+
+<table>
+<tr>
+<td width="50%" valign="top">
+<b><a href="https://github.com/8rulerstar/lidtilt">lidtilt</a></b> · Python<br>
+Reads the MacBook lid angle sensor to remove the lid's tilt from webcam head pitch.<br><br>
+<img src="assets/lidtilt.gif" width="100%" alt="lidtilt: as the lid moves, raw head pitch follows it while the corrected pitch stays flat">
+</td>
+<td width="50%" valign="top">
+<b><a href="https://github.com/8rulerstar/stella-ball">Stella Ball</a></b> · browser game<br>
+A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on itch.io →</a><br><br>
+<img src="assets/stella-ball.gif" width="100%" alt="Stella Ball gameplay: a shot chains through the party and defeats the boss">
+</td>
+</tr>
+</table>
 
 ### More open source
 
