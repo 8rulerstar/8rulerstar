@@ -20,8 +20,8 @@ Added `sv.metrics.KeyPointMeanAveragePrecision`, the first pose metric in superv
 COCO keypoint mAP using Object Keypoint Similarity for `sv.KeyPoints`. Its AP, AP50,
 AP75, APm and APl agree with pycocotools to within about 1e-8 on synthetic tests.
 Before that I fixed `from_yolo` reading pose labels as polygons
-([#2655](https://github.com/roboflow/supervision/pull/2655), released in
-[0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8)).
+([#2655](https://github.com/roboflow/supervision/pull/2655), extended by the maintainers
+and featured in the [0.30.8 release highlights](https://github.com/roboflow/supervision/releases/tag/0.30.8)).
 
 ### Projects
 
@@ -62,6 +62,11 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 
 ### More open source
 
+- [ultralytics/ultralytics#26651](https://github.com/ultralytics/ultralytics/pull/26651):
+  SAM prompts given for a folder or video reached only the first image, and later frames
+  fell back to segmenting everything. Prompts now apply to the whole source without
+  modifying the caller's arrays; the maintainers moved the forwarding to the streaming
+  entry point before merging. It leads the [8.4.177 release notes](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.177).
 - [ultralytics/ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635):
   Since a 2025 change, every DataLoader worker drew the same Albumentations augmentations,
   so training saw roughly 1/workers as many distinct draws. Each worker now seeds them
