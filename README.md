@@ -19,6 +19,7 @@ and the maintainers merged it as a smaller fix at the source.
 Added `sv.metrics.KeyPointMeanAveragePrecision`, the first pose metric in supervision:
 COCO keypoint mAP using Object Keypoint Similarity for `sv.KeyPoints`. Its AP, AP50,
 AP75, APm and APl agree with pycocotools to within about 1e-8 on synthetic tests.
+Shipped in [supervision 0.31.0](https://github.com/roboflow/supervision/releases/tag/0.31.0) as one of the release's headline features.
 Before that I fixed `from_yolo` reading pose labels as polygons
 ([#2655](https://github.com/roboflow/supervision/pull/2655), extended by the maintainers
 and featured in the [0.30.8 release highlights](https://github.com/roboflow/supervision/releases/tag/0.30.8)).
