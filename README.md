@@ -72,4 +72,4 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 - [ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635): every DataLoader worker drew the same Albumentations augmentations. I traced it and proposed reseeding per worker; the maintainer reworked the final commit.
 - [sktime#11233](https://github.com/sktime/sktime/pull/11233): re-enabled tests for two estimators that were skipped by mistake.
 
-[All merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar&type=pullrequests)
+[All merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-user%3Agaeun-k&type=pullrequests)
