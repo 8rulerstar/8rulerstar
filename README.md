@@ -36,6 +36,7 @@
 - **Problem:** in a stripped Unity IL2CPP build, method names sit in `global-metadata.dat` and the code in a separate native binary. On one Android game, Ghidra found 128 functions on its own; the other ~117,000 had to come from outside tools.
 - **My part:** wrote the original IL2CPP implementation: a `global-metadata.dat` reader (metadata versions 24, 27, 29, 31, 39), then linking methods to native addresses in PE, ELF and Mach-O and writing Ghidra seeds so `rea function <binary> 'Type$$Method'` decompiles by name. Before merge, two users with commercial builds compared it against Il2CppDumper: Windows x64 matched on 111,771 names with 0 differences; Android arm64 matched on all 58,901 seeds after a zero-fill fix the tester proposed.
 - **Result:** merged by the maintainer, who kept my commits in the history and added hardening commits (bounds, edge cases) on top. Their own check on a public Unity build found 0 differences from Il2CppDumper.
+- Earlier: paired same-named nested .NET types by their enclosing types ([#3079](https://github.com/morluto/rea/pull/3079)), released in [rea 6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0).
 
 ### Projects
 
