@@ -40,7 +40,7 @@
 
 ### Projects
 
-**[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python · [PyPI](https://pypi.org/project/poseaudit/)<br>
+**[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python · [PyPI](https://pypi.org/project/poseaudit/) · [Browser demo](https://huggingface.co/spaces/8rulerstar/poseaudit)<br>
 Checks how far angles and lengths computed from pose keypoints disagree with the labels, the way a measuring device is validated (bias, limits of agreement, ICC).
 On 322 left elbows from 200 COCO val2017 images, YOLO11n-pose disagrees with the labels by 15° or more on 58% of small arms (under 30 px) vs 26% of large ones (over 60 px). Much of that is label noise: the labels alone would put 30–44% of small arms and 17–31% of large ones off by 15° or more.
 
