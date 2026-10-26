@@ -2,7 +2,7 @@
 
 **ML/CV engineer (new grad · Seoul · open to remote).** I find and diagnose measurement problems in pose-estimation tooling.
 
-- **25 merged PRs** in open source, including **Ultralytics** and **Roboflow supervision**
+- **26 merged PRs** in open source, including **Ultralytics** and **Roboflow supervision**
 - Wrote the first version of supervision's **COCO keypoint mAP** metric, shipped in **0.31.0**
 - Author of **[poseaudit](https://github.com/8rulerstar/poseaudit)** and **[Epokio](https://github.com/8rulerstar/epokio)** (both on PyPI)
 
@@ -11,7 +11,7 @@
 <details>
 <summary>🇰🇷 한국어 요약</summary>
 
-- 전 세계에서 널리 쓰는 AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 머지 25건)
+- 전 세계에서 널리 쓰는 AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 머지 26건)
 - 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐습니다. 사용자 상용 빌드에서 Il2CppDumper와 이름 11만여 개가 차이 없이 일치했습니다.
 - YOLO의 **자세 인식 채점 오류**를 찾아 pycocotools와 비교해 재현했고, 메인테이너가 이를 받아 수정했습니다. COCO 변환 데이터에서 점수가 실제보다 낮게 나오던 문제였습니다. (공식 COCO pose 점수는 영향 없음)
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추면 휴대폰으로 알려주는 **Epokio**를 만들어 공개 배포했습니다.
@@ -32,10 +32,10 @@
 
 ### Highlights: Unity reverse engineering in rea
 
-**rea (reverse-engineering toolkit)** · [#3807](https://github.com/morluto/rea/pull/3807), [#5326](https://github.com/morluto/rea/pull/5326), [#5327](https://github.com/morluto/rea/pull/5327), [#5785](https://github.com/morluto/rea/pull/5785)
+**rea (reverse-engineering toolkit)** · [#3807](https://github.com/morluto/rea/pull/3807), [#5326](https://github.com/morluto/rea/pull/5326), [#5327](https://github.com/morluto/rea/pull/5327), [#5785](https://github.com/morluto/rea/pull/5785), [#6989](https://github.com/morluto/rea/pull/6989)
 - **Problem:** in a stripped Unity IL2CPP build, method names sit in `global-metadata.dat` and the code in a separate native binary. On one Android game, Ghidra found 128 functions on its own; the other ~117,000 had to come from outside tools.
-- **My part:** wrote the original IL2CPP implementation: a `global-metadata.dat` reader (metadata versions 24, 27, 29, 31, 39), then linking methods to native addresses in PE, ELF and Mach-O and writing Ghidra seeds so `rea function <binary> 'Type$$Method'` decompiles by name, and later linked generic method instances (`--generic-instances`, [#5785](https://github.com/morluto/rea/pull/5785)). Before merge, two users with commercial builds compared it against Il2CppDumper: Windows x64 matched on 111,771 names with 0 differences; Android arm64 matched on all 58,901 seeds after a zero-fill fix the tester proposed.
-- **Result:** merged by the maintainer, who kept my commits in the history and added hardening commits (bounds, edge cases) on top. Their own check on a public Unity build found 0 differences from Il2CppDumper.
+- **My part:** wrote the original IL2CPP implementation: a `global-metadata.dat` reader (metadata versions 24, 27, 29, 31, 39), then linking methods to native addresses in PE, ELF and Mach-O and writing Ghidra seeds so `rea function <binary> 'Type$$Method'` decompiles by name, and later linked generic method instances (`--generic-instances`, [#5785](https://github.com/morluto/rea/pull/5785)) and arm64 builds whose registrations were inlined by link-time optimisation ([#6989](https://github.com/morluto/rea/pull/6989)). Before merge, two users with commercial builds compared it against Il2CppDumper: Windows x64 matched on 111,771 names with 0 differences; Android arm64 matched on all 58,901 seeds after a zero-fill fix the tester proposed.
+- **Result:** merged by the maintainer, who kept my commits in the history and added hardening commits (bounds, edge cases) on top. Their own check on a public Unity build found 0 differences from Il2CppDumper. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0) (#6989 is not in a release yet).
 - Earlier: paired same-named nested .NET types by their enclosing types ([#3079](https://github.com/morluto/rea/pull/3079)), released in [rea 6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0).
 
 ### Projects
