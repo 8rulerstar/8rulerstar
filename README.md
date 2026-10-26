@@ -1,6 +1,6 @@
 ## Hi, I'm Byungkun Jang 👋
 
-**ML/CV engineer (new grad · Seoul · open to remote).** I find and diagnose measurement problems in pose-estimation tooling.
+**Software engineer (new grad · Seoul · open to remote).** I build Unity IL2CPP reverse-engineering support and check the measurements behind pose-estimation tools.
 
 - Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit), released in **6.8.0**
 - **26 merged PRs** in open source, including **Ultralytics** and **Roboflow supervision**
@@ -12,8 +12,8 @@
 <details>
 <summary>🇰🇷 한국어 요약</summary>
 
+- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 6.8.0에 릴리스됐습니다. 사용자 상용 빌드에서 Il2CppDumper와 이름 11만여 개가 차이 없이 일치했습니다.
 - 전 세계에서 널리 쓰는 AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 머지 26건)
-- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐습니다. 사용자 상용 빌드에서 Il2CppDumper와 이름 11만여 개가 차이 없이 일치했습니다.
 - YOLO의 **자세 인식 채점 오류**를 찾아 pycocotools와 비교해 재현했고, 재현 결과를 근거로 메인테이너가 다른 방식(변환기 한 줄)으로 고쳤습니다. COCO 변환 데이터에서 점수가 실제보다 낮게 나오던 문제였습니다. (공식 COCO pose 점수는 영향 없음)
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추면 휴대폰으로 알려주는 **Epokio**를 만들어 공개 배포했습니다.
 
