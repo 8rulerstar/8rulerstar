@@ -34,6 +34,10 @@
 - **Result:** squash-merged by the maintainers (gensokyo-dev, and morluto on #6989), who reworked parts of #5326 and #5327 (bounds checks, pointer-table and candidate handling) and added a compact query API and a performance fix. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0).
 - Earlier: paired same-named nested .NET types by their enclosing types ([#3079](https://github.com/morluto/rea/pull/3079)), released in [rea 6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0).
 
+<p><img src="assets/rea.gif" width="560" alt="rea: a stripped Unity IL2CPP function decompiles with FUN_ names in Ghidra alone, then rea links global-metadata.dat to native addresses and the same function decompiles with Sample_Box&lt;int&gt;__Put and System_String__Concat names">
+<br><sub>Own Unity 2022.3 sample build, Ghidra 12.1.4, rea main</sub></p>
+
+
 ### Highlights: pose estimation evaluation
 
 **Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
