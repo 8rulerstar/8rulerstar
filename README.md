@@ -33,7 +33,7 @@
 **Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
 - **Problem:** `convert_coco(use_keypoints=True)` kept people with no labelled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
 - **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix (yolo11n-pose on a 200-image COCO val2017 sample: pose mAP50-95 0.341 → 0.486).
-- **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. With that fix, he measured yolo26n-pose on my 200-image sample going from 0.347 to 0.576, matching pycocotools.
+- **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. With that fix, the maintainer measured yolo26n-pose on my 200-image sample going from 0.347 to 0.576, matching pycocotools.
 
 **supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
 - **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests; on 200 COCO val2017 images, AP, AP50, AP75, APm and APl matched pycocotools within 3e-9.
