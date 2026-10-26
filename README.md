@@ -79,10 +79,11 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 </tr>
 </table>
 
-### More open source (ML)
+### More open source
 
 - [ultralytics#26651](https://github.com/ultralytics/ultralytics/pull/26651): SAM prompts for a folder or video reached only the first image. I made them apply to the whole source. In review the maintainer caught that my version modified the caller's arrays in place; I fixed it, and they moved the forwarding to the streaming entry point.
 - [ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635): every DataLoader worker drew the same Albumentations augmentations. I traced it and proposed reseeding per worker; the maintainer reworked the final commit.
 - [sktime#11233](https://github.com/sktime/sktime/pull/11233): re-enabled full tests for two estimators that pass them.
+- [Improve YouTube#4347](https://github.com/code-charity/youtube/pull/4347): the playback speed stayed above 1x at the live edge of a stream. I reset it to 1x there. Released in [v4.2400](https://github.com/code-charity/youtube/releases/tag/v4.2400).
 
 [All merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-user%3Agaeun-k&type=pullrequests)
