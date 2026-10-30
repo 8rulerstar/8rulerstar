@@ -81,7 +81,7 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 
 ### More open source
 
-- [ultralytics#26934](https://github.com/ultralytics/ultralytics/pull/26934): with perspective augmentation, objects at Mosaic canvas corners could cross the projection plane and flip into image-sized boxes. I added a filter that drops them; the maintainer folded it into the existing box filter and kept only objects that cross the plane.
+- [ultralytics#26934](https://github.com/ultralytics/ultralytics/pull/26934): with perspective augmentation, objects at Mosaic canvas corners could cross the projection plane and flip into image-sized boxes. I added a filter that drops them; the maintainer folded it into the existing box filter and kept only objects that cross the plane. Released in [v8.4.193](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.193).
 - [ultralytics#26651](https://github.com/ultralytics/ultralytics/pull/26651): SAM prompts for a folder or video reached only the first image. I made them apply to the whole source. In review the maintainer caught that my version modified the caller's arrays in place; I fixed it, and they moved the forwarding to the streaming entry point.
 - [ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635): every DataLoader worker drew the same Albumentations augmentations. I traced it and proposed reseeding per worker; the maintainer reworked the final commit.
 - [sktime#11233](https://github.com/sktime/sktime/pull/11233): re-enabled full tests for two estimators that pass them.
