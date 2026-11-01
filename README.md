@@ -60,7 +60,7 @@ On 322 left elbows from 200 COCO val2017 images, YOLO11n-pose disagrees with the
 <br><sub>Photos: COCO val2017, CC BY 4.0</sub></p>
 
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python · [PyPI](https://pypi.org/project/epokio/)<br>
-Sends a phone alert when an ML training run stalls, hits NaN or finishes, by reading the logs it already writes (Ultralytics, Hugging Face, Lightning, Keras, TensorBoard). No code changes, no account.
+Sends a phone alert when an ML training run stalls, hits NaN or finishes, by reading the logs it already writes (Ultralytics, Hugging Face, Lightning, Keras, TensorBoard). No code changes, no account. Listed in [ntfy's integrations](https://docs.ntfy.sh/integrations/).
 
 <p><img src="assets/epokio.gif" width="560" alt="Epokio: a training run stalls, the web page marks it Stalled and the phone gets an alert"></p>
 
