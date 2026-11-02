@@ -57,7 +57,7 @@ Checks how far angles and lengths computed from pose keypoints disagree with the
 On 322 left elbows from 200 COCO val2017 images, YOLO11n-pose disagrees with the labels by 15° or more on 58% of small arms (under 30 px) vs 26% of large ones (over 60 px). How much of that is label noise is still open; simple noise models do not explain it ([details](https://github.com/8rulerstar/poseaudit)).
 
 <p><img src="assets/poseaudit.gif" width="560" alt="poseaudit: COCO label and yolo11n-pose elbow angles on three photos, then the share of elbows off by 15° or more by arm size">
-<br><sub>Photos: COCO val2017, each under its own Flickr license; annotations CC BY 4.0</sub></p>
+<br><sub>Photos from COCO val2017, all <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0</a>: <a href="https://www.flickr.com/photos/37899694@N04/3485274265/">Hans-Peter Gilgen</a>, <a href="https://www.flickr.com/photos/mcostasp/8067493921/">Marcelo Costa</a>, <a href="https://www.flickr.com/photo.gne?id=6886950764">Flickr photo 6886950764</a>. Cropped, with angles drawn; this GIF is shared under the same license. COCO annotations CC BY 4.0.</sub></p>
 
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python · [PyPI](https://pypi.org/project/epokio/)<br>
 Sends a phone alert when an ML training run stalls, hits NaN or finishes, by reading the logs it already writes (Ultralytics, Hugging Face, Lightning, Keras, TensorBoard). No code changes, no account. Listed in [ntfy's integrations](https://docs.ntfy.sh/integrations/).
