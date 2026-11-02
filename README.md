@@ -43,7 +43,7 @@
 **Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
 - **Problem:** `convert_coco(use_keypoints=True)` kept people with no labelled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
 - **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix (yolo11n-pose on a 200-image COCO val2017 sample: pose mAP50-95 0.341 → 0.486).
-- **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. With that fix, the maintainer measured yolo26n-pose on my 200-image sample going from 0.347 to 0.576, matching pycocotools.
+- **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. With that fix, the maintainer measured a different model, yolo26n-pose, on my 200-image sample going from 0.347 to 0.576, matching pycocotools.
 
 **supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
 - **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests; on 200 COCO val2017 images, AP, AP50, AP75, APm and APl matched pycocotools within 3e-9.
@@ -57,7 +57,7 @@ Checks how far angles and lengths computed from pose keypoints disagree with the
 On 322 left elbows from 200 COCO val2017 images, YOLO11n-pose disagrees with the labels by 15° or more on 58% of small arms (under 30 px) vs 26% of large ones (over 60 px). How much of that is label noise is still open; simple noise models do not explain it ([details](https://github.com/8rulerstar/poseaudit)).
 
 <p><img src="assets/poseaudit.gif" width="560" alt="poseaudit: COCO label and yolo11n-pose elbow angles on three photos, then the share of elbows off by 15° or more by arm size">
-<br><sub>Photos: COCO val2017, CC BY 4.0</sub></p>
+<br><sub>Photos: COCO val2017, each under its own Flickr license; annotations CC BY 4.0</sub></p>
 
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python · [PyPI](https://pypi.org/project/epokio/)<br>
 Sends a phone alert when an ML training run stalls, hits NaN or finishes, by reading the logs it already writes (Ultralytics, Hugging Face, Lightning, Keras, TensorBoard). No code changes, no account. Listed in [ntfy's integrations](https://docs.ntfy.sh/integrations/).
@@ -82,6 +82,8 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 ### More open source
 
 - [ultralytics#26934](https://github.com/ultralytics/ultralytics/pull/26934): with perspective augmentation, objects at Mosaic canvas corners could cross the projection plane and flip into image-sized boxes. I added a filter that drops them; the maintainer folded it into the existing box filter, which now drops only objects that cross the plane. Released in [v8.4.193](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.193).
+  <p><img src="assets/ultralytics-26934.png" width="480" alt="Three panels: a 1280 Mosaic canvas with five colored squares; after RandomPerspective in ultralytics 8.4.192 the red corner object, which has no visible pixels, gets a box covering the whole 640 image; in 8.4.193 that box is gone and the image and other boxes are unchanged">
+  <br><sub>Synthetic canvas, perspective=0.001, seed 2. Over seeds 0 to 999 of this setup, 58 frames got a box over a third of the image in 8.4.192 and 0 in 8.4.193.</sub></p>
 - [ultralytics#26651](https://github.com/ultralytics/ultralytics/pull/26651): SAM prompts for a folder or video reached only the first image. I made them apply to the whole source. In review the maintainer caught that my version modified the caller's arrays in place; I fixed it, and they moved the forwarding to the streaming entry point.
 - [ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635): every DataLoader worker drew the same Albumentations augmentations. I traced it and proposed reseeding per worker; the maintainer reworked the final commit.
 - [rf-detr#1653](https://github.com/roboflow/rf-detr/pull/1653), [#1654](https://github.com/roboflow/rf-detr/pull/1654): loading a pretrained RF-DETR logged warnings that did not apply: DINOv2 weight warnings on 12 of the 14 default configs, and a class-count warning that said the opposite of what happened. I made them match what loading actually does.
