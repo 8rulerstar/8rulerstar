@@ -72,10 +72,18 @@ Reads the MacBook lid angle sensor to remove the lid's tilt from webcam head pit
 <img src="assets/lidtilt.gif" width="100%" alt="lidtilt: as the lid moves, raw head pitch follows it while the corrected pitch stays flat">
 </td>
 <td width="50%" valign="top">
+<b><a href="https://github.com/8rulerstar/macbook-als-spectral">macbook-als-spectral</a></b> · Python<br>
+Reads all five raw color channels of the MacBook ambient light sensor on macOS. The fifth, which macOS tools skipped, best separates red from green; upstream PR open.<br><br>
+<img src="assets/macbook-als-spectral.gif" width="100%" alt="macbook-als-spectral: replay of a recorded run; red, green, blue and white phone screens move the peak from c4 to c2 to c0">
+</td>
+</tr>
+<tr>
+<td width="50%" valign="top">
 <b><a href="https://github.com/8rulerstar/stella-ball">Stella Ball</a></b> · browser game<br>
 A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on itch.io →</a><br><br>
 <img src="assets/stella-ball.gif" width="100%" alt="Stella Ball gameplay: a shot chains through the party and defeats the boss">
 </td>
+<td width="50%" valign="top"></td>
 </tr>
 </table>
 
