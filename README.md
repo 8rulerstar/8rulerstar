@@ -23,7 +23,7 @@
 ### Highlights: Unity reverse engineering in rea
 
 **rea (reverse-engineering toolkit)** · [#3807](https://github.com/morluto/rea/pull/3807), [#5326](https://github.com/morluto/rea/pull/5326), [#5327](https://github.com/morluto/rea/pull/5327), [#5785](https://github.com/morluto/rea/pull/5785), [#6989](https://github.com/morluto/rea/pull/6989)
-- **Problem:** in a stripped Unity IL2CPP build, method names sit in `global-metadata.dat` and the code in a separate native binary. In one Android game, Ghidra alone found 128 functions; seeds from outside tools such as Il2CppDumper created the other ~117,000.
+- **Problem:** in a stripped Unity IL2CPP build, method names sit in `global-metadata.dat` and the code in a separate native binary. In one Android game, Ghidra alone found 128 functions; seeds from outside tools such as Il2CppDumper created the other ~117,000 ([#5112](https://github.com/morluto/rea/issues/5112)).
 - **My part:** wrote the original IL2CPP implementation:
   - a `global-metadata.dat` reader (metadata versions 24, 27, 29, 31 and 39)
   - linking methods to native addresses in PE, ELF and Mach-O, with Ghidra seeds so `rea function <binary> 'Type$$Method'` decompiles by name
@@ -32,7 +32,7 @@
 <p><img src="assets/rea.gif" width="560" alt="rea: a stripped Unity IL2CPP function decompiles with FUN_ names in Ghidra alone, then rea links global-metadata.dat to native addresses and the same function decompiles with Sample_Box&lt;int&gt;__Put and System_String__Concat names">
 <br><sub>Unity 2022.3 sample built for this demo, Ghidra 12.1.4, rea main 1173c0a9d</sub></p>
 
-- **Verified against Il2CppDumper:**
+- **Verified against Il2CppDumper** (reports in [#5112](https://github.com/morluto/rea/issues/5112)):
   - by two users on commercial builds (binaries not shared): all 111,771 non-generic names on Windows x64; all 58,901 metadata-linked addresses on Android, after a zero-fill fix the tester proposed
   - by me on a public MIT-licensed Unity build ([Between Two Worlds 1.0.5](https://github.com/SkS-GameDev/Between-two-worlds/releases/tag/1.0.5)): 43,198 Windows and 42,098 Android code rows, 0 differences
 - **Result:** squash-merged by the maintainers (gensokyo-dev, and morluto on #6989), who substantially reworked #5326 and #5327 (bounds checks, pointer-table and candidate handling) and added a compact query API and a performance fix. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0).
@@ -54,7 +54,7 @@
 
 **[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python · [PyPI](https://pypi.org/project/poseaudit/) · [Browser demo](https://huggingface.co/spaces/8rulerstar/poseaudit)<br>
 Checks how far angles and lengths computed from pose keypoints disagree with the labels, the way a measuring device is validated (bias, limits of agreement, ICC).
-On 322 left elbows from 200 COCO val2017 images, YOLO11n-pose disagrees with the labels by 15° or more on 58% of small arms (under 30 px) vs 26% of large ones (over 60 px). How much of that is label noise is still open; simple noise models do not explain the small-arm rate ([details](https://github.com/8rulerstar/poseaudit)).
+On 322 left elbows from 200 COCO val2017 images, YOLO11n-pose disagrees with the labels by 15° or more on 58% of arms whose segments average under 30 px vs 26% of those at 60 px or more. How much of that is label noise is still open; an isotropic per-point noise model at COCO's sigmas does not explain the small-arm rate ([details](https://github.com/8rulerstar/poseaudit)).
 
 <p><img src="assets/poseaudit.gif" width="560" alt="poseaudit: COCO label and yolo11n-pose elbow angles on three photos, then the share of elbows off by 15° or more by arm size">
 <br><sub>Photos from COCO val2017, all <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0</a>: <a href="https://www.flickr.com/photos/37899694@N04/3485274265/">Hans-Peter Gilgen</a>, <a href="https://www.flickr.com/photos/mcostasp/8067493921/">Marcelo Costa</a>, <a href="https://www.flickr.com/photo.gne?id=6886950764">Flickr photo 6886950764</a>. Modified with keypoints and angles drawn; this GIF is shared under the same license. COCO annotations CC BY 4.0.</sub></p>
@@ -91,7 +91,7 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 
 - [ultralytics#26934](https://github.com/ultralytics/ultralytics/pull/26934): with perspective augmentation, objects at Mosaic canvas corners could cross the projection plane and flip into image-sized boxes. I added a filter that drops them; the maintainer folded it into the existing box filter, which now drops only objects that cross the plane. Released in [v8.4.193](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.193).
   <p><img src="assets/ultralytics-26934.png" width="480" alt="Three panels: a 1280 Mosaic canvas with five colored squares; after RandomPerspective in ultralytics 8.4.192 the red corner object, which has no visible pixels, gets a box covering the whole 640 image; in 8.4.193 that box is gone and the image and other boxes are unchanged">
-  <br><sub>Synthetic canvas, perspective=0.001, seed 2. In the PR's 1000-frame test with objects near all four corners, 46 frames got a box over a third of the image on main and 0 with the PR's original filter.</sub></p>
+  <br><sub>Synthetic canvas, perspective=0.001, seed 2. In the PR's 1000-frame check with objects near all four corners, 46 frames got a box over a third of the image on main and 0 with the PR's original filter.</sub></p>
 - [ultralytics#26651](https://github.com/ultralytics/ultralytics/pull/26651): SAM prompts for a folder or video reached only the first image. I made them apply to the whole source. In review the maintainer caught that my version modified the caller's arrays in place; I fixed it, and they moved the forwarding to the streaming entry point.
 - [ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635): every DataLoader worker drew the same Albumentations augmentations. I traced it and reseeded from each worker's own seed on first use; the maintainer simplified it by dropping the init-time seed and the test.
 - [rf-detr#1653](https://github.com/roboflow/rf-detr/pull/1653), [#1654](https://github.com/roboflow/rf-detr/pull/1654): loading a pretrained RF-DETR logged warnings that did not apply: DINOv2 weight warnings on 12 of the 14 default configs, and a class-count warning that said the opposite of what happened. I made them match what loading actually does; the maintainer added tests and reworded the warnings. Released in [rf-detr 1.12.0](https://github.com/roboflow/rf-detr/releases/tag/1.12.0).
