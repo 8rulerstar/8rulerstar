@@ -34,7 +34,7 @@
 
 - **Verified against Il2CppDumper** (reports in [#5112](https://github.com/morluto/rea/issues/5112)):
   - by two users on commercial builds (binaries not shared): all 111,771 non-generic names on Windows x64; all 58,901 metadata-linked addresses on Android, after a zero-fill fix the tester proposed
-  - by me on a public MIT-licensed Unity build ([Between Two Worlds 1.0.5](https://github.com/SkS-GameDev/Between-two-worlds/releases/tag/1.0.5)): 43,198 Windows and 42,098 Android code rows, 0 differences
+  - by me on a public MIT-licensed Unity build ([Between Two Worlds 1.0.5](https://github.com/SkS-GameDev/Between-two-worlds/releases/tag/1.0.5)): 43,198 Windows and 42,098 Android code rows, 0 differences ([#5327](https://github.com/morluto/rea/pull/5327))
 - **Result:** squash-merged by the maintainers (gensokyo-dev, and morluto on #6989), who substantially reworked #5326 and #5327 (bounds checks, pointer-table and candidate handling) and added a compact query API and a performance fix. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0).
 - Earlier: paired same-named nested .NET types by their enclosing types ([#3079](https://github.com/morluto/rea/pull/3079), with follow-up fixes by the maintainers), released in [rea 6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0).
 
