@@ -12,7 +12,7 @@
 <details>
 <summary>🇰🇷 한국어 요약</summary>
 
-- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 6.8.0에 릴리스됐습니다. 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 Il2CppDumper와 제네릭을 제외한 메서드 이름 11만여 개가 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
+- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 6.8.0에 릴리스됐습니다. 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
 - AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 31건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 2 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
 - Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 출시됐습니다.
 - YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
@@ -55,7 +55,7 @@
 
 **[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python · [PyPI](https://pypi.org/project/poseaudit/) · [Browser demo](https://huggingface.co/spaces/8rulerstar/poseaudit)<br>
 Checks how far angles and lengths computed from pose keypoints disagree with the labels, the way a measuring device is validated (bias, limits of agreement, ICC).
-On 322 left elbows from 200 COCO val2017 images, YOLO11n-pose disagrees with the labels by 15° or more on 58% of arms whose segments average under 30 px vs 26% of those at 60 px or more. How much of that is label noise is still open; an isotropic per-point noise model at COCO's sigmas does not explain the small-arm rate ([details](https://github.com/8rulerstar/poseaudit)).
+On 322 left elbows from 200 COCO val2017 images, yolo11n-pose disagrees with the labels by 15° or more on 58% of arms whose segments average under 30 px vs 26% of those at 60 px or more. How much of that is label noise is still open; an isotropic per-point noise model at COCO's sigmas does not explain the small-arm rate ([details](https://github.com/8rulerstar/poseaudit)).
 
 <p><img src="assets/poseaudit.gif" width="560" alt="poseaudit: COCO label and yolo11n-pose elbow angles on three photos, then the share of elbows off by 15° or more by arm size">
 <br><sub>Photos from COCO val2017, all <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0</a>: <a href="https://www.flickr.com/photos/37899694@N04/3485274265/">Hans-Peter Gilgen</a>, <a href="https://www.flickr.com/photos/mcostasp/8067493921/">Marcelo Costa</a>, <a href="https://www.flickr.com/photo.gne?id=6886950764">Flickr photo 6886950764</a>. Modified with keypoints and angles drawn; this GIF is shared under the same license. COCO annotations CC BY 4.0.</sub></p>
