@@ -3,7 +3,7 @@
 **Software engineer (new grad · Seoul · open to remote).** I build Unity IL2CPP reverse-engineering support and check the measurements behind pose-estimation tools.
 
 - Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); it shipped in **6.8.0**
-- **31 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 2 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar&type=pullrequests)). Not counted: my own repos.
+- **31 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 2 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
 - Wrote the first version of supervision's **COCO keypoint mAP** metric, which the maintainer extended and shipped in **0.31.0**
 - Author of **[poseaudit](https://github.com/8rulerstar/poseaudit)** and **[Epokio](https://github.com/8rulerstar/epokio)** (both on PyPI)
 
@@ -12,8 +12,8 @@
 <details>
 <summary>🇰🇷 한국어 요약</summary>
 
-- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 6.8.0에 릴리스됐습니다. 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 Il2CppDumper와 제네릭을 제외한 메서드 이름 11만여 개가 차이 없이 일치했습니다.
-- AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 31건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 2 · 기타. 본인 저장소 제외)
+- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 6.8.0에 릴리스됐습니다. 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 Il2CppDumper와 제네릭을 제외한 메서드 이름 11만여 개가 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
+- AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 31건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 2 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
 - Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 출시됐습니다.
 - YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추면 휴대폰으로 알려주는 **Epokio**를 만들어 공개 배포했습니다.
@@ -36,6 +36,7 @@
   - by two users on commercial builds (binaries not shared): all 111,771 non-generic names on Windows x64; all 58,901 metadata-linked addresses on Android, after a zero-fill fix the tester proposed
   - by me on a public MIT-licensed Unity build ([Between Two Worlds 1.0.5](https://github.com/SkS-GameDev/Between-two-worlds/releases/tag/1.0.5)): 43,198 Windows and 42,098 Android code rows, 0 differences ([#5327](https://github.com/morluto/rea/pull/5327))
 - **Result:** squash-merged by the maintainers (gensokyo-dev, and morluto on #6989), who substantially reworked #5326 and #5327 (bounds checks, pointer-table and candidate handling) and added a compact query API and a performance fix. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0).
+- Later: added managed-member suggestions for Unity script assemblies in the desktop app ([#5511](https://github.com/morluto/rea/pull/5511)), released in [rea 6.9.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.9.0), whose release notes thank me among the contributors.
 - Earlier: paired same-named nested .NET types by their enclosing types ([#3079](https://github.com/morluto/rea/pull/3079), with follow-up fixes by the maintainers), released in [rea 6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0).
 
 ### Highlights: pose estimation evaluation
@@ -97,4 +98,4 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 - [rf-detr#1653](https://github.com/roboflow/rf-detr/pull/1653), [#1654](https://github.com/roboflow/rf-detr/pull/1654): loading a pretrained RF-DETR logged warnings that did not apply: DINOv2 weight warnings on 12 of the 14 default configs, and a class-count warning that said the opposite of what happened. I made them match what loading actually does; the maintainer added tests and reworded the warnings. Released in [rf-detr 1.12.0](https://github.com/roboflow/rf-detr/releases/tag/1.12.0), whose release notes credit me as a contributor.
 - [Improve YouTube#4347](https://github.com/code-charity/youtube/pull/4347) (open-source YouTube extension, 400k+ Chrome Web Store users): a sped-up livestream that caught up to the live edge got stuck stalling and rebuffering. I made it drop back to 1x there, as YouTube's own speed menu does. Released in [v4.2400](https://github.com/code-charity/youtube/releases/tag/v4.2400).
 
-[All merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar&type=pullrequests)
+[All merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)
