@@ -3,7 +3,7 @@
 **Software engineer (new grad · Seoul · open to remote).** I build Unity IL2CPP reverse-engineering support and check the measurements behind pose-estimation tools.
 
 - Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); it shipped in **6.8.0**
-- **31 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 2 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
+- **32 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
 - Wrote the first version of supervision's **COCO keypoint mAP** metric, which the maintainer extended and shipped in **0.31.0**
 - Author of **[poseaudit](https://github.com/8rulerstar/poseaudit)** and **[Epokio](https://github.com/8rulerstar/epokio)** (both on PyPI)
 
@@ -13,7 +13,7 @@
 <summary>🇰🇷 한국어 요약</summary>
 
 - 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 6.8.0에 릴리스됐습니다. 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
-- AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 31건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 2 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
+- AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 32건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
 - Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 출시됐습니다.
 - YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추면 휴대폰으로 알려주는 **Epokio**를 만들어 공개 배포했습니다.
@@ -49,6 +49,7 @@
 **supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
 - **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests. A comparison script in the PR showed AP, AP50, AP75, APm and APl matching pycocotools within 3e-9 on 200 COCO val2017 images.
 - **Result:** the maintainer extended it before release. It shipped as one of the headline features of [0.31.0](https://github.com/roboflow/supervision/releases/tag/0.31.0), whose release notes credit me for it and for fixing perfect-prediction mAP scoring.
+- Later: added the first pose/keypoint cookbook, evaluating RF-DETR Keypoint on 200 COCO val2017 images with this metric; scores match pycocotools to four decimals ([#2842](https://github.com/roboflow/supervision/pull/2842), [cookbook](https://supervision.roboflow.com/develop/notebooks/evaluate-pose-estimation/)).
 - Earlier: fixed `from_yolo` reading pose labels as polygons ([#2655](https://github.com/roboflow/supervision/pull/2655)), later extended by the maintainer and released in [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 
 ### Projects
