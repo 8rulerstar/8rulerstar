@@ -49,7 +49,7 @@
 **supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
 - **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests. A comparison script in the PR showed AP, AP50, AP75, APm and APl matching pycocotools within 3e-9 on 200 COCO val2017 images.
 - **Result:** the maintainer extended it before release. It shipped as one of the headline features of [0.31.0](https://github.com/roboflow/supervision/releases/tag/0.31.0), whose release notes credit me for it and for fixing perfect-prediction mAP scoring.
-- Later: added a cookbook on evaluating pose estimation with this metric, scoring RF-DETR Keypoint on 200 COCO val2017 images; the maintainer refined it before merging ([#2842](https://github.com/roboflow/supervision/pull/2842), [cookbook](https://supervision.roboflow.com/develop/notebooks/evaluate-pose-estimation/)).
+- Later: added a cookbook on evaluating pose estimation with this metric, scoring RF-DETR Keypoint on 200 COCO val2017 images; the maintainer simplified and hardened it before merging ([#2842](https://github.com/roboflow/supervision/pull/2842), [cookbook](https://supervision.roboflow.com/develop/notebooks/evaluate-pose-estimation/)).
 - Earlier: fixed `from_yolo` reading pose labels as polygons ([#2655](https://github.com/roboflow/supervision/pull/2655)), later extended by the maintainer and released in [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 
 ### Projects
