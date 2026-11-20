@@ -4,7 +4,11 @@
 
 - Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); it shipped in **6.8.0**
 - **32 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
-- Credited in release notes of 11 projects: Ultralytics [v8.4.175](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.175), [v8.4.176](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.176), [v8.4.177](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.177), [v8.4.193](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.193) · supervision [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8), [0.31.0](https://github.com/roboflow/supervision/releases/tag/0.31.0), [0.32.0](https://github.com/roboflow/supervision/releases/tag/0.32.0) · [RF-DETR 1.12.0](https://github.com/roboflow/rf-detr/releases/tag/1.12.0) · [Sentry Python SDK 2.69.2](https://github.com/getsentry/sentry-python/releases/tag/2.69.2) · rea [6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0), [6.7.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.7.0), [6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0), [6.9.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.9.0) · [sktime v1.2.0](https://github.com/sktime/sktime/releases/tag/v1.2.0) · [Mocha v12.0.3](https://github.com/mochajs/mocha/releases/tag/v12.0.3) · SurfSense [v2.1.0](https://github.com/MODSetter/SurfSense/releases/tag/v2.1.0), [v2.2.0](https://github.com/MODSetter/SurfSense/releases/tag/v2.2.0) · [repowise v0.53.0](https://github.com/repowise-dev/repowise/releases/tag/v0.53.0) · [MobiFlight 11.3.1.1](https://github.com/MobiFlight/MobiFlight-Connector/releases/tag/11.3.1.1) · [Improve YouTube v4.2400](https://github.com/code-charity/youtube/releases/tag/v4.2400)
+- Named in the release notes of 10 projects, including Ultralytics (4 releases), supervision (3), rea (4), RF-DETR and the Sentry Python SDK<details><summary>All releases</summary>
+
+Ultralytics v8.4.175, v8.4.176, v8.4.177, v8.4.193 · supervision 0.30.8, 0.31.0, 0.32.0 · RF-DETR 1.12.0 · Sentry Python SDK 2.69.2 · rea 6.6.0 to 6.9.0 · sktime v1.2.0 · SurfSense v2.1.0, v2.2.0 · repowise v0.53.0 · MobiFlight 11.3.1.1 · Improve YouTube v4.2400
+
+</details>
 - Wrote the first version of supervision's **COCO keypoint mAP** metric, which the maintainer extended and shipped in **0.31.0**
 - Author of **[poseaudit](https://github.com/8rulerstar/poseaudit)** and **[Epokio](https://github.com/8rulerstar/epokio)** (both on PyPI)
 
@@ -15,7 +19,7 @@
 
 - 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 6.8.0에 릴리스됐습니다. 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
 - AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 32건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
-- 릴리스 노트 언급(11개 프로젝트): Ultralytics 4회 · Roboflow supervision 3회 · RF-DETR · Sentry Python SDK · rea 4회 · sktime · Mocha · SurfSense 2회 · repowise · MobiFlight · Improve YouTube
+- 10개 프로젝트 릴리스 노트에 이름이 올랐습니다(Ultralytics 4회, supervision 3회, rea 4회, RF-DETR, Sentry Python SDK 등).
 - Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 출시됐습니다.
 - YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추면 휴대폰으로 알려주는 **Epokio**를 만들어 공개 배포했습니다.
