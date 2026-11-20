@@ -4,11 +4,13 @@
 
 - Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); it shipped in **6.8.0**
 - **32 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
-- Named in the release notes of 10 projects, including Ultralytics (4 releases), supervision (3), rea (4), RF-DETR and the Sentry Python SDK<details><summary>All releases</summary>
+- Named in the release notes of 10 projects, including Ultralytics (4 releases), supervision (3), rea (4), RF-DETR and the Sentry Python SDK
 
-Ultralytics v8.4.175, v8.4.176, v8.4.177, v8.4.193 · supervision 0.30.8, 0.31.0, 0.32.0 · RF-DETR 1.12.0 · Sentry Python SDK 2.69.2 · rea 6.6.0 to 6.9.0 · sktime v1.2.0 · SurfSense v2.1.0, v2.2.0 · repowise v0.53.0 · MobiFlight 11.3.1.1 · Improve YouTube v4.2400
+  <details><summary>All releases</summary>
 
-</details>
+  Ultralytics [v8.4.175](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.175), [v8.4.176](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.176), [v8.4.177](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.177), [v8.4.193](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.193) · supervision [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8), [0.31.0](https://github.com/roboflow/supervision/releases/tag/0.31.0), [0.32.0](https://github.com/roboflow/supervision/releases/tag/0.32.0) · [RF-DETR 1.12.0](https://github.com/roboflow/rf-detr/releases/tag/1.12.0) · [Sentry Python SDK 2.69.2](https://github.com/getsentry/sentry-python/releases/tag/2.69.2) · rea [6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0), [6.7.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.7.0), [6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0), [6.9.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.9.0) · [sktime v1.2.0](https://github.com/sktime/sktime/releases/tag/v1.2.0) · SurfSense [v2.1.0](https://github.com/MODSetter/SurfSense/releases/tag/v2.1.0), [v2.2.0](https://github.com/MODSetter/SurfSense/releases/tag/v2.2.0) · [repowise v0.53.0](https://github.com/repowise-dev/repowise/releases/tag/v0.53.0) · [MobiFlight 11.3.1.1](https://github.com/MobiFlight/MobiFlight-Connector/releases/tag/11.3.1.1) · [Improve YouTube v4.2400](https://github.com/code-charity/youtube/releases/tag/v4.2400)
+
+  </details>
 - Wrote the first version of supervision's **COCO keypoint mAP** metric, which the maintainer extended and shipped in **0.31.0**
 - Author of **[poseaudit](https://github.com/8rulerstar/poseaudit)** and **[Epokio](https://github.com/8rulerstar/epokio)** (both on PyPI)
 
