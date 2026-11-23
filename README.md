@@ -27,7 +27,7 @@
 - AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 32건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
 - 10개 프로젝트 릴리스 노트에 이름이 올랐습니다(Ultralytics 4회, supervision 3회, rea 4회, RF-DETR, Sentry Python SDK 등).
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추거나 NaN이 나거나 끝나면 휴대폰으로 알려 주는 **Epokio**를 만들어 공개 배포했습니다.
-- Epokio는 ntfy 공식 연동 목록에, macbook-als-spectral은 리버스 엔지니어링 사례 목록 Awesome-REA에 실렸습니다.
+- Epokio는 ntfy 공식 문서의 커뮤니티 프로젝트 목록에, macbook-als-spectral은 리버스 엔지니어링 사례 목록 Awesome-REA에 실렸습니다.
 - 램지 수 하한을 올리는 구성을 계산으로 찾아 검산 스크립트와 함께 공개했습니다(예: R(7,16) ≥ 708, 서베이 값 629). 동료 심사 전 결과입니다.
 
 </details>
@@ -74,7 +74,7 @@ On 322 left elbows from 200 COCO val2017 images, yolo11n-pose disagrees with the
 <br><sub>Photos from COCO val2017, all <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0</a>: <a href="https://www.flickr.com/photos/37899694@N04/3485274265/">Hans-Peter Gilgen</a>, <a href="https://www.flickr.com/photos/mcostasp/8067493921/">Marcelo Costa</a>, <a href="http://images.cocodataset.org/val2017/000000054654.jpg">COCO image 54654</a> (Flickr photo 6886950764, no longer public). Modified with keypoints and angles drawn; this GIF is shared under the same license. COCO annotations CC BY 4.0.</sub></p>
 
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python · [PyPI](https://pypi.org/project/epokio/)<br>
-Sends a phone alert when an ML training run stalls, hits NaN or finishes, by reading the logs it already writes (Ultralytics, Hugging Face, Lightning, Keras, TensorBoard). No code changes, no account. Listed in [ntfy's integrations](https://docs.ntfy.sh/integrations/).
+Sends a phone alert when an ML training run stalls, hits NaN or finishes, by reading the logs it already writes (Ultralytics, Hugging Face, Lightning, Keras, TensorBoard). No code changes, no account. Listed among the community projects in [ntfy's documentation](https://docs.ntfy.sh/integrations/).
 
 <p><img src="assets/epokio.gif" width="560" alt="Epokio: a training run stalls, the web page marks it Stalled and the phone gets an alert"></p>
 
