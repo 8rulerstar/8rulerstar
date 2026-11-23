@@ -1,7 +1,8 @@
 ## Hi, I'm Byungkun Jang 👋
 
-**Multimedia engineering student (graduating Aug 2027) and computer vision intern · Seoul · open to remote.** I build Unity IL2CPP reverse-engineering support and audit the accuracy of pose-estimation metrics.
+**Multimedia engineering student (graduating Aug 2027) and computer vision intern · Seoul · open to remote.** I audit the accuracy of pose-estimation metrics and build Unity IL2CPP reverse-engineering support.
 
+- Wrote the first version of supervision's **COCO keypoint mAP** metric, which the maintainer extended and shipped in **0.31.0**
 - Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); the maintainers reworked it and shipped it in **6.8.0**
 - **32 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
 - Named in the release notes of 10 projects, including Ultralytics (4 releases), supervision (3), rea (4), RF-DETR and the Sentry Python SDK
@@ -12,7 +13,6 @@
 
   </details>
 
-- Wrote the first version of supervision's **COCO keypoint mAP** metric, which the maintainer extended and shipped in **0.31.0**
 - Author of **[poseaudit](https://github.com/8rulerstar/poseaudit)** and **[Epokio](https://github.com/8rulerstar/epokio)** (both on PyPI)
 
 📧 bkbkjang@gmail.com · 🎮 [itch.io](https://8rulerstar.itch.io)
@@ -21,16 +21,29 @@
 <summary>🇰🇷 한국어 요약</summary>
 
 - 멀티미디어공학 전공 학생(2027년 8월 졸업 예정)이고 컴퓨터 비전 인턴으로 일하고 있습니다. 서울에 있으며 원격 근무도 가능합니다.
+- Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 릴리스됐습니다.
+- YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
 - 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여했고, 메인테이너가 상당 부분 다시 손봐 머지한 뒤 6.8.0에 릴리스됐습니다. PR을 올리기 전 제 브랜치를 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
 - AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 32건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
 - 10개 프로젝트 릴리스 노트에 이름이 올랐습니다(Ultralytics 4회, supervision 3회, rea 4회, RF-DETR, Sentry Python SDK 등).
-- Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 릴리스됐습니다.
-- YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추거나 NaN이 나거나 끝나면 휴대폰으로 알려 주는 **Epokio**를 만들어 공개 배포했습니다.
 - Epokio는 ntfy 공식 연동 목록에, macbook-als-spectral은 리버스 엔지니어링 사례 목록 Awesome-REA에 실렸습니다.
 - 램지 수 하한을 올리는 구성을 계산으로 찾아 검산 스크립트와 함께 공개했습니다(예: R(7,16) ≥ 708, 서베이 값 629). 동료 심사 전 결과입니다.
 
 </details>
+
+### Highlights: pose estimation evaluation
+
+**Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
+- **Problem:** `convert_coco(use_keypoints=True)` kept people with no labeled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
+- **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix. On a 200-image COCO val2017 sample, it moved yolo11n-pose's pose mAP50-95 from 0.341 to 0.486, matching pycocotools when pycocotools uses the same box-based area (box × 0.53).
+- **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. The maintainer then checked that fix on the same 200-image sample with a different model, yolo26n-pose: pose mAP50-95 went from 0.347 to 0.576, matching pycocotools. The two gains are on different models and are not comparable.
+
+**supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
+- **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests. The comparison reported in the PR showed AP, AP50, AP75, APm and APl matching pycocotools within 3e-9 on 200 COCO val2017 images.
+- **Result:** the maintainer extended it before release. It shipped as one of the headline features of [0.31.0](https://github.com/roboflow/supervision/releases/tag/0.31.0), whose release notes credit me for it and for fixing perfect-prediction mAP scoring.
+- Later: added a cookbook on evaluating pose estimation with this metric, scoring RF-DETR Keypoint on 200 COCO val2017 images; the maintainer simplified and hardened it before merging ([#2842](https://github.com/roboflow/supervision/pull/2842), [cookbook](https://supervision.roboflow.com/develop/notebooks/evaluate-pose-estimation/), credited in the [0.32.0](https://github.com/roboflow/supervision/releases/tag/0.32.0) release notes).
+- Earlier: fixed `from_yolo` reading pose labels as polygons ([#2655](https://github.com/roboflow/supervision/pull/2655)), extended by the maintainer before merging and released in [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 
 ### Highlights: Unity reverse engineering in rea
 
@@ -50,19 +63,6 @@
 - **Result:** squash-merged by the maintainers (gensokyo-dev, and morluto on #6989), who substantially reworked #5326 and #5327 (bounds checks, pointer-table and candidate handling) and added a compact query API and a performance fix. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0).
 - Later: added managed-member suggestions for Unity script assemblies in the desktop app ([#5511](https://github.com/morluto/rea/pull/5511)), released in [rea 6.9.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.9.0), whose release notes thank me among the contributors.
 - Earlier: paired same-named nested .NET types by their enclosing types ([#3079](https://github.com/morluto/rea/pull/3079); a maintainer added most of the commits before merging), released in [rea 6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0).
-
-### Highlights: pose estimation evaluation
-
-**Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
-- **Problem:** `convert_coco(use_keypoints=True)` kept people with no labeled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
-- **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix. On a 200-image COCO val2017 sample, it moved yolo11n-pose's pose mAP50-95 from 0.341 to 0.486, matching pycocotools when pycocotools uses the same box-based area (box × 0.53).
-- **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. The maintainer then checked that fix on the same 200-image sample with a different model, yolo26n-pose: pose mAP50-95 went from 0.347 to 0.576, matching pycocotools. The two gains are on different models and are not comparable.
-
-**supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
-- **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests. The comparison reported in the PR showed AP, AP50, AP75, APm and APl matching pycocotools within 3e-9 on 200 COCO val2017 images.
-- **Result:** the maintainer extended it before release. It shipped as one of the headline features of [0.31.0](https://github.com/roboflow/supervision/releases/tag/0.31.0), whose release notes credit me for it and for fixing perfect-prediction mAP scoring.
-- Later: added a cookbook on evaluating pose estimation with this metric, scoring RF-DETR Keypoint on 200 COCO val2017 images; the maintainer simplified and hardened it before merging ([#2842](https://github.com/roboflow/supervision/pull/2842), [cookbook](https://supervision.roboflow.com/develop/notebooks/evaluate-pose-estimation/), credited in the [0.32.0](https://github.com/roboflow/supervision/releases/tag/0.32.0) release notes).
-- Earlier: fixed `from_yolo` reading pose labels as polygons ([#2655](https://github.com/roboflow/supervision/pull/2655)), extended by the maintainer before merging and released in [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 
 ### Projects
 
@@ -97,9 +97,15 @@ Reads all five raw color channels of the MacBook ambient light sensor on macOS. 
 A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on itch.io →</a><br><br>
 <img src="assets/stella-ball.gif" width="100%" alt="Stella Ball gameplay: a shot chains through the party and defeats the boss">
 </td>
-<td width="50%" valign="top"></td>
+<td width="50%" valign="top">
+<b><a href="https://8rulerstar.itch.io/runecast">RuneCast</a></b> · Unity, C#<br>
+An auto-battler in development: you never move the heroes, you trace runes that fire into the battle. Uses third-party art and audio. <a href="https://8rulerstar.itch.io/runecast">Play on itch.io →</a><br><br>
+<img src="assets/runecast-battle.jpg" width="100%" alt="RuneCast battle: four knights face four orcs on a grass field while a drawn rune stroke crosses between them">
+</td>
 </tr>
 </table>
+
+Also [RIPOSTE](https://8rulerstar.itch.io/riposte), a parry-first bullet-hell roguelite in development (JavaScript, Canvas). All three games disclose AI-assisted code on itch.io.
 
 ### Research
 
