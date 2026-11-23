@@ -38,13 +38,13 @@
 - **My part:** wrote the original IL2CPP implementation:
   - a `global-metadata.dat` reader (metadata versions 24, 27, 29, 31 and 39)
   - linking methods to native addresses in PE, ELF and Mach-O, with Ghidra seeds so `rea function <binary> 'Type$$Method'` decompiles by name
-  - later, generic method instances ([#5785](https://github.com/morluto/rea/pull/5785)) and arm64 builds inlined by link-time optimization ([#6989](https://github.com/morluto/rea/pull/6989))
+  - later, generic method instances ([#5785](https://github.com/morluto/rea/pull/5785)) and arm64 builds whose registration tables were inlined by link-time optimization ([#6989](https://github.com/morluto/rea/pull/6989))
 
 <p><img src="assets/rea.gif" width="560" alt="rea: a stripped Unity IL2CPP function decompiles with FUN_ names in Ghidra alone, then rea links global-metadata.dat to native addresses and the same function decompiles with Sample_Box&lt;int&gt;__Put and System_String__Concat names">
 <br><sub>Unity 2022.3 sample built for this demo, Ghidra 12.1.4, rea main 1173c0a9d</sub></p>
 
 - **Verified against Il2CppDumper** (reports in [#5112](https://github.com/morluto/rea/issues/5112)):
-  - by two users on commercial builds (binaries not shared): all 111,771 non-generic names on Windows x64; all 58,901 metadata-linked addresses on Android, after a zero-fill fix the tester proposed
+  - by two users on commercial builds (binaries not shared), run on my pre-PR branch (554ffa1c9) before the maintainers' rework: all 111,771 non-generic names on Windows x64; all 58,901 metadata-linked addresses on Android, after a zero-fill fix the tester proposed
   - by me on a public MIT-licensed Unity build ([Between Two Worlds 1.0.5](https://github.com/SkS-GameDev/Between-two-worlds/releases/tag/1.0.5)): 43,198 Windows and 42,098 Android code rows, 0 differences ([#5327](https://github.com/morluto/rea/pull/5327))
 - **Result:** squash-merged by the maintainers (gensokyo-dev, and morluto on #6989), who substantially reworked #5326 and #5327 (bounds checks, pointer-table and candidate handling) and added a compact query API and a performance fix. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0).
 - Later: added managed-member suggestions for Unity script assemblies in the desktop app ([#5511](https://github.com/morluto/rea/pull/5511)), released in [rea 6.9.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.9.0), whose release notes thank me among the contributors.
@@ -54,8 +54,8 @@
 
 **Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
 - **Problem:** `convert_coco(use_keypoints=True)` kept people with no labelled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
-- **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix. On a 200-image COCO val2017 sample, it moved yolo11n-pose's pose mAP50-95 from 0.341 to 0.486.
-- **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. The maintainer then checked that fix on the same 200-image sample with a different model, yolo26n-pose: pose mAP50-95 went from 0.347 to 0.576, matching pycocotools.
+- **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix. On a 200-image COCO val2017 sample, it moved yolo11n-pose's pose mAP50-95 from 0.341 to 0.486, matching pycocotools when it uses the same box-based area (box × 0.53).
+- **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. The maintainer then checked that fix on the same 200-image sample with a different model, yolo26n-pose: pose mAP50-95 went from 0.347 to 0.576, matching pycocotools. The two gains are on different models and are not comparable.
 
 **supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
 - **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests. The comparison reported in the PR showed AP, AP50, AP75, APm and APl matching pycocotools within 3e-9 on 200 COCO val2017 images.
@@ -86,7 +86,7 @@ Reads the MacBook lid angle sensor to remove the lid's tilt from webcam head pit
 </td>
 <td width="50%" valign="top">
 <b><a href="https://github.com/8rulerstar/macbook-als-spectral">macbook-als-spectral</a></b> · Python<br>
-Reads all five raw color channels of the MacBook ambient light sensor on macOS. The fifth, which macOS tools skipped, best separates red from green; <a href="https://github.com/olvvier/apple-silicon-accelerometer/pull/25">upstream PR</a> open. Listed as a case study in <a href="https://github.com/reacher-z/Awesome-REA/blob/8248a7b21e2284d39f1c2d71e417906c3378f9e7/docs/cases/protocol.md">Awesome-REA</a>.<br><br>
+Reads all five raw color channels of the MacBook ambient light sensor on macOS. The fifth, which macOS tools ignore, best separates red from green in my measurements; <a href="https://github.com/olvvier/apple-silicon-accelerometer/pull/25">upstream PR</a> open. Listed as a case study in <a href="https://github.com/reacher-z/Awesome-REA/blob/8248a7b21e2284d39f1c2d71e417906c3378f9e7/docs/cases/protocol.md">Awesome-REA</a>.<br><br>
 <img src="assets/macbook-als-spectral.gif" width="100%" alt="macbook-als-spectral: replay of a recorded run; red, green, blue and white phone screens move the peak from c4 to c2 to c0">
 </td>
 </tr>
@@ -112,6 +112,6 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 - [ultralytics#26651](https://github.com/ultralytics/ultralytics/pull/26651): SAM prompts for a folder or video reached only the first image. I made them apply to the whole source. In review the maintainer caught that my version modified the caller's arrays in place; I fixed it, and they moved the forwarding to the streaming entry point. Released in [v8.4.177](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.177), where it is the release's highlight.
 - [ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635): every DataLoader worker drew the same Albumentations augmentations. I traced it and reseeded from each worker's own seed on first use; the maintainer simplified it by dropping the init-time seed and the test.
 - [rf-detr#1653](https://github.com/roboflow/rf-detr/pull/1653), [#1654](https://github.com/roboflow/rf-detr/pull/1654): loading a pretrained RF-DETR model logged warnings that did not apply: DINOv2 weight warnings on 12 of the 14 default configs, and a class-count warning that said the opposite of what happened. I made them match what loading actually does; the maintainer added tests and reworded the warnings. Released in [rf-detr 1.12.0](https://github.com/roboflow/rf-detr/releases/tag/1.12.0), whose release notes credit me as a contributor.
-- [Improve YouTube#4347](https://github.com/code-charity/youtube/pull/4347) (open-source YouTube extension, 400k Chrome Web Store users): a sped-up livestream that caught up to the live edge got stuck stalling and rebuffering. I made it drop back to 1x there, as YouTube's own speed menu does. Released in [v4.2400](https://github.com/code-charity/youtube/releases/tag/v4.2400).
+- [Improve YouTube#4347](https://github.com/code-charity/youtube/pull/4347) (open-source YouTube extension, 400k Chrome Web Store users): a sped-up livestream that caught up to the live edge kept stalling and rebuffering. I made it drop back to 1x there, as YouTube's own speed menu does. Released in [v4.2400](https://github.com/code-charity/youtube/releases/tag/v4.2400).
 
 [All merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)
