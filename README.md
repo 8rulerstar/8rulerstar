@@ -4,7 +4,7 @@
 
 - Wrote the first version of supervision's **COCO keypoint mAP** metric, which the maintainer extended and shipped in **0.31.0**
 - Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); the maintainers reworked it and shipped it in **6.8.0**
-- **32 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
+- **32 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · RF-DETR 2 · 11 more in 9 other repos ([all merged PRs](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
 - Named in the release notes of 10 projects, including Ultralytics (4 releases), supervision (3), rea (4), RF-DETR and the Sentry Python SDK
 
   <details><summary>All releases</summary>
@@ -35,7 +35,7 @@
 ### Highlights: pose estimation evaluation
 
 **Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
-- **Problem:** `convert_coco(use_keypoints=True)` kept people with no labeled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
+- **Problem:** `convert_coco(use_keypoints=True)` kept people with no labeled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco`. Custom labels with fully occluded people are scored as before, since the fix is in the converter.
 - **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix. On a 200-image COCO val2017 sample, it moved yolo11n-pose's pose mAP50-95 from 0.341 to 0.486, matching pycocotools when pycocotools uses the same box-based area (box × 0.53).
 - **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. The maintainer then checked that fix on the same 200-image sample with a different model, yolo26n-pose: pose mAP50-95 went from 0.347 to 0.576, matching pycocotools. The two gains are on different models and are not comparable.
 
@@ -68,7 +68,7 @@
 
 **[poseaudit](https://github.com/8rulerstar/poseaudit)** · Python · [PyPI](https://pypi.org/project/poseaudit/) · [Browser demo](https://huggingface.co/spaces/8rulerstar/poseaudit)<br>
 Checks how far angles and lengths computed from pose keypoints disagree with the labels, the way a measuring device is validated (bias, limits of agreement, ICC).
-On 322 left elbows from 200 COCO val2017 images, yolo11n-pose disagrees with the labels by 15° or more on 58% of arms whose segments average under 30 px vs 26% of those at 60 px or more. How much of that is label noise is still open; an isotropic per-point noise model at COCO's sigmas does not explain the small-arm rate ([details](https://github.com/8rulerstar/poseaudit)).
+On 322 left elbows from 200 COCO val2017 images, yolo11n-pose disagrees with the labels by 15° or more on 58% of arms whose segments average under 30 px (n = 134) vs 26% of those at 60 px or more (n = 76). How much of that is label noise is still open; an isotropic per-point noise model at COCO's sigmas does not explain the small-arm rate ([details](https://github.com/8rulerstar/poseaudit)).
 
 <p><img src="assets/poseaudit.gif" width="560" alt="poseaudit: COCO label and yolo11n-pose elbow angles on three photos, then the share of elbows off by 15° or more by arm size">
 <br><sub>Photos from COCO val2017, all <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0</a>: <a href="https://www.flickr.com/photos/37899694@N04/3485274265/">Hans-Peter Gilgen</a>, <a href="https://www.flickr.com/photos/mcostasp/8067493921/">Marcelo Costa</a>, <a href="http://images.cocodataset.org/val2017/000000054654.jpg">COCO image 54654</a> (Flickr photo 6886950764, no longer public). Modified with keypoints and angles drawn; this GIF is shared under the same license. COCO annotations CC BY 4.0.</sub></p>
@@ -99,7 +99,7 @@ A top-down billiards battler with 34 stages, playable in the browser. <a href="h
 </td>
 <td width="50%" valign="top">
 <b><a href="https://8rulerstar.itch.io/runecast">RuneCast</a></b> · Unity, C#<br>
-An auto-battler in development: you never move the heroes, you trace runes that fire into the battle. Art and audio are third-party assets, credited on its itch.io page. <a href="https://8rulerstar.itch.io/runecast">Play on itch.io →</a><br><br>
+An auto-battler in development: you never move the heroes, you trace runes that fire into the battle. Art and audio are third-party assets, credited in-game and on its itch.io page. <a href="https://8rulerstar.itch.io/runecast">Play on itch.io →</a><br><br>
 <img src="assets/runecast-battle.jpg" width="100%" alt="RuneCast battle: four knights face four orcs on a grass field while a drawn rune stroke crosses between them">
 </td>
 </tr>
