@@ -48,7 +48,7 @@
   - by me on a public MIT-licensed Unity build ([Between Two Worlds 1.0.5](https://github.com/SkS-GameDev/Between-two-worlds/releases/tag/1.0.5)): 43,198 Windows and 42,098 Android code rows, 0 differences ([#5327](https://github.com/morluto/rea/pull/5327))
 - **Result:** squash-merged by the maintainers (gensokyo-dev, and morluto on #6989), who substantially reworked #5326 and #5327 (bounds checks, pointer-table and candidate handling) and added a compact query API and a performance fix. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0).
 - Later: added managed-member suggestions for Unity script assemblies in the desktop app ([#5511](https://github.com/morluto/rea/pull/5511)), released in [rea 6.9.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.9.0), whose release notes thank me among the contributors.
-- Earlier: paired same-named nested .NET types by their enclosing types ([#3079](https://github.com/morluto/rea/pull/3079), with follow-up fixes by the maintainers), released in [rea 6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0).
+- Earlier: paired same-named nested .NET types by their enclosing types ([#3079](https://github.com/morluto/rea/pull/3079); a maintainer added most of the commits before merging), released in [rea 6.6.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.6.0).
 
 ### Highlights: pose estimation evaluation
 
@@ -58,10 +58,10 @@
 - **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. The maintainer then checked that fix on the same 200-image sample with a different model, yolo26n-pose: pose mAP50-95 went from 0.347 to 0.576, matching pycocotools.
 
 **supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
-- **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests. A comparison script in the PR showed AP, AP50, AP75, APm and APl matching pycocotools within 3e-9 on 200 COCO val2017 images.
+- **My part:** wrote the initial `sv.metrics.KeyPointMeanAveragePrecision` (COCO keypoint mAP using OKS) and its first pycocotools parity tests. The comparison reported in the PR showed AP, AP50, AP75, APm and APl matching pycocotools within 3e-9 on 200 COCO val2017 images.
 - **Result:** the maintainer extended it before release. It shipped as one of the headline features of [0.31.0](https://github.com/roboflow/supervision/releases/tag/0.31.0), whose release notes credit me for it and for fixing perfect-prediction mAP scoring.
 - Later: added a cookbook on evaluating pose estimation with this metric, scoring RF-DETR Keypoint on 200 COCO val2017 images; the maintainer simplified and hardened it before merging ([#2842](https://github.com/roboflow/supervision/pull/2842), [cookbook](https://supervision.roboflow.com/develop/notebooks/evaluate-pose-estimation/), credited in the [0.32.0](https://github.com/roboflow/supervision/releases/tag/0.32.0) release notes).
-- Earlier: fixed `from_yolo` reading pose labels as polygons ([#2655](https://github.com/roboflow/supervision/pull/2655)), later extended by the maintainer and released in [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
+- Earlier: fixed `from_yolo` reading pose labels as polygons ([#2655](https://github.com/roboflow/supervision/pull/2655)), extended by the maintainer before merging and released in [0.30.8](https://github.com/roboflow/supervision/releases/tag/0.30.8).
 
 ### Projects
 
@@ -102,7 +102,7 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 
 ### Research
 
-**[ramsey-lower-bounds](https://github.com/8rulerstar/ramsey-lower-bounds)**: constructions that raise lower bounds for several classical Ramsey numbers, for example R(7,16) ≥ 708 where the dynamic survey *Small Ramsey Numbers* (rev. 18) lists 629, with graphs and checkers you can run. Computational results, not peer reviewed; archived on Zenodo ([10.5281/zenodo.24149479](https://doi.org/10.5281/zenodo.24149479)).
+**[ramsey-lower-bounds](https://github.com/8rulerstar/ramsey-lower-bounds)**: constructions that raise lower bounds for several classical Ramsey numbers, for example R(7,16) ≥ 708 where the dynamic survey *Small Ramsey Numbers* (rev. 18) lists 629, with graphs and checkers you can run. Computational results, not peer reviewed; archived on Zenodo ([10.5281/zenodo.24128875](https://doi.org/10.5281/zenodo.24128875)).
 
 ### More open source
 
