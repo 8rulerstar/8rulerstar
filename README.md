@@ -26,6 +26,8 @@
 - Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 출시됐습니다.
 - YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추면 휴대폰으로 알려주는 **Epokio**를 만들어 공개 배포했습니다.
+- Epokio는 ntfy 공식 연동 목록에, macbook-als-spectral은 역공학 사례 목록 Awesome-REA에 실렸습니다.
+- 램지 수 하한을 올리는 구성을 계산으로 찾아 검산 스크립트와 함께 공개했습니다(예: R(7,16) ≥ 708, 서베이 값 629). 동료 심사 전 결과입니다.
 
 </details>
 
@@ -68,7 +70,7 @@ Checks how far angles and lengths computed from pose keypoints disagree with the
 On 322 left elbows from 200 COCO val2017 images, yolo11n-pose disagrees with the labels by 15° or more on 58% of arms whose segments average under 30 px vs 26% of those at 60 px or more. How much of that is label noise is still open; an isotropic per-point noise model at COCO's sigmas does not explain the small-arm rate ([details](https://github.com/8rulerstar/poseaudit)).
 
 <p><img src="assets/poseaudit.gif" width="560" alt="poseaudit: COCO label and yolo11n-pose elbow angles on three photos, then the share of elbows off by 15° or more by arm size">
-<br><sub>Photos from COCO val2017, all <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0</a>: <a href="https://www.flickr.com/photos/37899694@N04/3485274265/">Hans-Peter Gilgen</a>, <a href="https://www.flickr.com/photos/mcostasp/8067493921/">Marcelo Costa</a>, <a href="https://www.flickr.com/photo.gne?id=6886950764">Flickr photo 6886950764</a>. Modified with keypoints and angles drawn; this GIF is shared under the same license. COCO annotations CC BY 4.0.</sub></p>
+<br><sub>Photos from COCO val2017, all <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">CC BY-NC-SA 2.0</a>: <a href="https://www.flickr.com/photos/37899694@N04/3485274265/">Hans-Peter Gilgen</a>, <a href="https://www.flickr.com/photos/mcostasp/8067493921/">Marcelo Costa</a>, <a href="http://images.cocodataset.org/val2017/000000054654.jpg">COCO image 54654</a> (Flickr photo 6886950764, no longer public). Modified with keypoints and angles drawn; this GIF is shared under the same license. COCO annotations CC BY 4.0.</sub></p>
 
 **[Epokio](https://github.com/8rulerstar/epokio)** · Python · [PyPI](https://pypi.org/project/epokio/)<br>
 Sends a phone alert when an ML training run stalls, hits NaN or finishes, by reading the logs it already writes (Ultralytics, Hugging Face, Lightning, Keras, TensorBoard). No code changes, no account. Listed in [ntfy's integrations](https://docs.ntfy.sh/integrations/).
@@ -84,7 +86,7 @@ Reads the MacBook lid angle sensor to remove the lid's tilt from webcam head pit
 </td>
 <td width="50%" valign="top">
 <b><a href="https://github.com/8rulerstar/macbook-als-spectral">macbook-als-spectral</a></b> · Python<br>
-Reads all five raw color channels of the MacBook ambient light sensor on macOS. The fifth, which macOS tools skipped, best separates red from green; upstream PR open. Listed as a case study in <a href="https://github.com/reacher-z/Awesome-REA/blob/8248a7b21e2284d39f1c2d71e417906c3378f9e7/docs/cases/protocol.md">Awesome-REA</a>.<br><br>
+Reads all five raw color channels of the MacBook ambient light sensor on macOS. The fifth, which macOS tools skipped, best separates red from green; <a href="https://github.com/olvvier/apple-silicon-accelerometer/pull/25">upstream PR</a> open. Listed as a case study in <a href="https://github.com/reacher-z/Awesome-REA/blob/8248a7b21e2284d39f1c2d71e417906c3378f9e7/docs/cases/protocol.md">Awesome-REA</a>.<br><br>
 <img src="assets/macbook-als-spectral.gif" width="100%" alt="macbook-als-spectral: replay of a recorded run; red, green, blue and white phone screens move the peak from c4 to c2 to c0">
 </td>
 </tr>
@@ -100,7 +102,7 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 
 ### Research
 
-**[ramsey-r7-16](https://github.com/8rulerstar/ramsey-r7-16)**: a 648-vertex (7,16)-graph, so R(7,16) ≥ 649, with the construction and checkers. A computational result, not peer reviewed. Another researcher's [records list](https://github.com/arhancanli/quantavane-ramsey-records) credits it as first published on 9 November 2026.
+**[ramsey-lower-bounds](https://github.com/8rulerstar/ramsey-lower-bounds)**: constructions that raise lower bounds for several classical Ramsey numbers, for example R(7,16) ≥ 708 where the dynamic survey *Small Ramsey Numbers* (rev. 18) lists 629, with graphs and checkers you can run. Computational results, not peer reviewed; archived on Zenodo ([10.5281/zenodo.24149479](https://doi.org/10.5281/zenodo.24149479)).
 
 ### More open source
 
