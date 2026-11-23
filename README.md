@@ -23,7 +23,7 @@
 - 멀티미디어공학 전공 학생(2027년 8월 졸업 예정)이고 컴퓨터 비전 인턴으로 일하고 있습니다. 서울에 있으며 원격 근무도 가능합니다.
 - Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 릴리스됐습니다.
 - YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
-- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여했고, 메인테이너가 상당 부분 다시 손봐 머지한 뒤 6.8.0에 릴리스됐습니다. PR을 올리기 전 제 브랜치를 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
+- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여했고, 메인테이너가 상당 부분 다시 손봐 머지한 뒤 6.8.0에 릴리스됐습니다. 메인테이너가 손보기 전의 제 실험 브랜치를 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
 - AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 32건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
 - 10개 프로젝트 릴리스 노트에 이름이 올랐습니다(Ultralytics 4회, supervision 3회, rea 4회, RF-DETR, Sentry Python SDK 등).
 - 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추거나 NaN이 나거나 끝나면 휴대폰으로 알려 주는 **Epokio**를 만들어 공개 배포했습니다.
@@ -58,7 +58,7 @@
 <br><sub>Unity 2022.3 sample built for this demo, Ghidra 12.1.4, rea main 1173c0a9d</sub></p>
 
 - **Verified against Il2CppDumper** (reports in [#5112](https://github.com/morluto/rea/issues/5112)):
-  - by two users on commercial builds (binaries not shared), run on my pre-PR branch (554ffa1c9) before the maintainers' rework: all 111,771 non-generic names on Windows x64; all 58,901 metadata-linked addresses on Android, after a zero-fill fix the tester proposed
+  - by two users on commercial builds (binaries not shared), run on my experimental branch (554ffa1c9) before the maintainers' rework: all 111,771 non-generic names on Windows x64; all 58,901 metadata-linked addresses on Android, after a zero-fill fix the tester proposed
   - by me on a public MIT-licensed Unity build ([Between Two Worlds 1.0.5](https://github.com/SkS-GameDev/Between-two-worlds/releases/tag/1.0.5)): 43,198 Windows and 42,098 Android code rows, 0 differences ([#5327](https://github.com/morluto/rea/pull/5327))
 - **Result:** squash-merged by the maintainers (gensokyo-dev, and morluto on #6989), who substantially reworked #5326 and #5327 (bounds checks, pointer-table and candidate handling) and added a compact query API and a performance fix. Released in [rea 6.8.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.8.0).
 - Later: added managed-member suggestions for Unity script assemblies in the desktop app ([#5511](https://github.com/morluto/rea/pull/5511)), released in [rea 6.9.0](https://github.com/morluto/rea/releases/tag/rea-agents-6.9.0), whose release notes thank me among the contributors.
@@ -94,18 +94,18 @@ Reads all five raw color channels of the MacBook ambient light sensor on macOS. 
 <tr>
 <td width="50%" valign="top">
 <b><a href="https://github.com/8rulerstar/stella-ball">Stella Ball</a></b> · browser game<br>
-A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on itch.io →</a><br><br>
+A top-down billiards battler with 34 stages, playable in the browser. <a href="https://8rulerstar.itch.io/stella-ball">Play on itch.io →</a><br><br>
 <img src="assets/stella-ball.gif" width="100%" alt="Stella Ball gameplay: a shot chains through the party and defeats the boss">
 </td>
 <td width="50%" valign="top">
 <b><a href="https://8rulerstar.itch.io/runecast">RuneCast</a></b> · Unity, C#<br>
-An auto-battler in development: you never move the heroes, you trace runes that fire into the battle. Uses third-party art and audio. <a href="https://8rulerstar.itch.io/runecast">Play on itch.io →</a><br><br>
+An auto-battler in development: you never move the heroes, you trace runes that fire into the battle. Art and audio are third-party assets, credited on its itch.io page. <a href="https://8rulerstar.itch.io/runecast">Play on itch.io →</a><br><br>
 <img src="assets/runecast-battle.jpg" width="100%" alt="RuneCast battle: four knights face four orcs on a grass field while a drawn rune stroke crosses between them">
 </td>
 </tr>
 </table>
 
-Also [RIPOSTE](https://8rulerstar.itch.io/riposte), a parry-first bullet-hell roguelite in development (JavaScript, Canvas). All three games disclose AI-assisted code on itch.io.
+Also [RIPOSTE](https://8rulerstar.itch.io/riposte), a parry-first bullet-hell roguelite in development (JavaScript, Canvas). Their itch.io pages disclose AI assistance: code for all three, and graphics for Stella Ball and RIPOSTE.
 
 ### Research
 
