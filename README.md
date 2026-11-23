@@ -20,7 +20,8 @@
 <details>
 <summary>🇰🇷 한국어 요약</summary>
 
-- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 6.8.0에 릴리스됐습니다. 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
+- 멀티미디어공학 전공 학생(2027년 8월 졸업 예정)이고 컴퓨터 비전 인턴으로 일하고 있습니다. 서울, 원격 근무 가능.
+- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 메인테이너가 상당 부분 다시 손본 뒤 6.8.0에 릴리스됐습니다. 머지 전 제 브랜치를 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
 - AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 32건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
 - 10개 프로젝트 릴리스 노트에 이름이 올랐습니다(Ultralytics 4회, supervision 3회, rea 4회, RF-DETR, Sentry Python SDK 등).
 - Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 출시됐습니다.
@@ -54,7 +55,7 @@
 
 **Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
 - **Problem:** `convert_coco(use_keypoints=True)` kept people with no labelled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
-- **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix. On a 200-image COCO val2017 sample, it moved yolo11n-pose's pose mAP50-95 from 0.341 to 0.486, matching pycocotools when it uses the same box-based area (box × 0.53).
+- **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix. On a 200-image COCO val2017 sample, it moved yolo11n-pose's pose mAP50-95 from 0.341 to 0.486, matching pycocotools when pycocotools uses the same box-based area (box × 0.53).
 - **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. The maintainer then checked that fix on the same 200-image sample with a different model, yolo26n-pose: pose mAP50-95 went from 0.347 to 0.576, matching pycocotools. The two gains are on different models and are not comparable.
 
 **supervision (Roboflow)** · [#2687](https://github.com/roboflow/supervision/pull/2687)
