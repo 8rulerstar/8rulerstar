@@ -2,7 +2,7 @@
 
 **Multimedia engineering student (graduating Aug 2027) and computer vision intern · Seoul · open to remote.** I build Unity IL2CPP reverse-engineering support and audit the accuracy of pose-estimation metrics.
 
-- Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); it shipped in **6.8.0**
+- Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); the maintainers reworked it and shipped it in **6.8.0**
 - **32 merged PRs** in 14 external open-source repos (as of Nov 2026): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · RF-DETR 2 · 11 more in 9 other repos ([list](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)). Not counted: my own repos and a team project repo.
 - Named in the release notes of 10 projects, including Ultralytics (4 releases), supervision (3), rea (4), RF-DETR and the Sentry Python SDK
 
@@ -20,14 +20,14 @@
 <details>
 <summary>🇰🇷 한국어 요약</summary>
 
-- 멀티미디어공학 전공 학생(2027년 8월 졸업 예정)이고 컴퓨터 비전 인턴으로 일하고 있습니다. 서울, 원격 근무 가능.
-- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여해 머지됐고, 메인테이너가 상당 부분 다시 손본 뒤 6.8.0에 릴리스됐습니다. 머지 전 제 브랜치를 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
+- 멀티미디어공학 전공 학생(2027년 8월 졸업 예정)이고 컴퓨터 비전 인턴으로 일하고 있습니다. 서울에 있으며 원격 근무도 가능합니다.
+- 리버스 엔지니어링 도구 **rea**에 Unity(IL2CPP) 게임 분석 기능(원본 구현)을 기여했고, 메인테이너가 상당 부분 다시 손봐 머지한 뒤 6.8.0에 릴리스됐습니다. PR을 올리기 전 제 브랜치를 두 사용자가 각자의 상용 빌드로 검증했고, Windows 빌드에서 제네릭을 제외한 메서드 이름 11만여 개가 Il2CppDumper 결과와 차이 없이 일치했습니다. 이후 데스크톱 앱의 Unity 멤버 제안 기능(#5511)으로 6.9.0 릴리스 노트 감사 명단에도 올랐습니다.
 - AI 라이브러리 <b>YOLO(Ultralytics)</b>와 <b>Roboflow supervision</b>에 PR이 머지됐습니다. (외부 저장소 14곳 머지 32건(2026년 11월 기준): rea 9 · Ultralytics 4 · SurfSense 3 · supervision 3 · 기타. 본인 저장소와 팀 프로젝트 저장소 제외)
 - 10개 프로젝트 릴리스 노트에 이름이 올랐습니다(Ultralytics 4회, supervision 3회, rea 4회, RF-DETR, Sentry Python SDK 등).
-- Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 출시됐습니다.
+- Roboflow supervision의 **COCO keypoint mAP** 지표 첫 버전을 작성했고, 메인테이너가 확장해 0.31.0의 대표 기능 중 하나로 릴리스됐습니다.
 - YOLO(Ultralytics)의 **COCO 변환기**(`convert_coco`)가 키포인트 없는 사람을 남겨 자세 인식 점수가 실제보다 낮게 나오던 문제를 찾아 pycocotools와 비교해 재현했고, 이를 근거로 메인테이너가 변환기 한 줄로 고쳤습니다. (공식 COCO pose 점수는 영향 없음)
-- 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추면 휴대폰으로 알려주는 **Epokio**를 만들어 공개 배포했습니다.
-- Epokio는 ntfy 공식 연동 목록에, macbook-als-spectral은 역공학 사례 목록 Awesome-REA에 실렸습니다.
+- 자세 인식 측정값을 점검하는 **poseaudit**, 모델 학습이 멈추거나 NaN이 나거나 끝나면 휴대폰으로 알려 주는 **Epokio**를 만들어 공개 배포했습니다.
+- Epokio는 ntfy 공식 연동 목록에, macbook-als-spectral은 리버스 엔지니어링 사례 목록 Awesome-REA에 실렸습니다.
 - 램지 수 하한을 올리는 구성을 계산으로 찾아 검산 스크립트와 함께 공개했습니다(예: R(7,16) ≥ 708, 서베이 값 629). 동료 심사 전 결과입니다.
 
 </details>
@@ -54,7 +54,7 @@
 ### Highlights: pose estimation evaluation
 
 **Ultralytics (YOLO)** · [#26564](https://github.com/ultralytics/ultralytics/pull/26564), issue [#26563](https://github.com/ultralytics/ultralytics/issues/26563)
-- **Problem:** `convert_coco(use_keypoints=True)` kept people with no labelled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
+- **Problem:** `convert_coco(use_keypoints=True)` kept people with no labeled keypoints, so pose validation counted them as targets and under-reported pose mAP. The official COCO pose numbers were unaffected; it hit data converted with `convert_coco` and custom labels with fully occluded people.
 - **My part:** found and reproduced it against pycocotools, and proposed a validator-side fix. On a 200-image COCO val2017 sample, it moved yolo11n-pose's pose mAP50-95 from 0.341 to 0.486, matching pycocotools when pycocotools uses the same box-based area (box × 0.53).
 - **Result:** the maintainer (glenn-jocher) fixed it at the source with a one-line change in the converter instead. The maintainer then checked that fix on the same 200-image sample with a different model, yolo26n-pose: pose mAP50-95 went from 0.347 to 0.576, matching pycocotools. The two gains are on different models and are not comparable.
 
@@ -109,10 +109,10 @@ A small browser game. <a href="https://8rulerstar.itch.io/stella-ball">Play on i
 
 - [ultralytics#26934](https://github.com/ultralytics/ultralytics/pull/26934): with perspective augmentation, objects at Mosaic canvas corners could cross the projection plane and flip into image-sized boxes. I added a filter that drops them; the maintainer folded it into the existing box filter, which now drops only objects that cross the plane. Released in [v8.4.193](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.193), whose release notes credit me.
   <p><img src="assets/ultralytics-26934.png" width="480" alt="Three panels: a 1280 Mosaic canvas with five colored squares; after RandomPerspective in ultralytics 8.4.192 the red corner object, which has no visible pixels, gets a box covering the whole 640 image; in 8.4.193 that box is gone and the image and other boxes are unchanged">
-  <br><sub>Synthetic canvas, perspective=0.001, seed 2. In the PR's 1000-frame check with objects near all four corners, 46 frames got a box over a third of the image on main and 0 with the PR's original filter.</sub></p>
+  <br><sub>Synthetic canvas, perspective=0.001, seed 2. In the PR's 1,000-frame check with objects near all four corners, 46 frames got a box over a third of the image on main and 0 with the PR's original filter.</sub></p>
 - [ultralytics#26651](https://github.com/ultralytics/ultralytics/pull/26651): SAM prompts for a folder or video reached only the first image. I made them apply to the whole source. In review the maintainer caught that my version modified the caller's arrays in place; I fixed it, and they moved the forwarding to the streaming entry point. Released in [v8.4.177](https://github.com/ultralytics/ultralytics/releases/tag/v8.4.177), where it is the release's highlight.
 - [ultralytics#26635](https://github.com/ultralytics/ultralytics/pull/26635): every DataLoader worker drew the same Albumentations augmentations. I traced it and reseeded from each worker's own seed on first use; the maintainer simplified it by dropping the init-time seed and the test.
-- [rf-detr#1653](https://github.com/roboflow/rf-detr/pull/1653), [#1654](https://github.com/roboflow/rf-detr/pull/1654): loading a pretrained RF-DETR model logged warnings that did not apply: DINOv2 weight warnings on 12 of the 14 default configs, and a class-count warning that said the opposite of what happened. I made them match what loading actually does; the maintainer added tests and reworded the warnings. Released in [rf-detr 1.12.0](https://github.com/roboflow/rf-detr/releases/tag/1.12.0), whose release notes credit me as a contributor.
+- [rf-detr#1653](https://github.com/roboflow/rf-detr/pull/1653), [#1654](https://github.com/roboflow/rf-detr/pull/1654): loading a pretrained RF-DETR model logged warnings that did not apply: DINOv2 weight warnings on 12 of the 14 default configs, and a class-count warning that said the opposite of what happened. I made them match what loading actually does; the maintainer added tests and reworded the warnings. Released in [RF-DETR 1.12.0](https://github.com/roboflow/rf-detr/releases/tag/1.12.0), whose release notes credit me as a contributor.
 - [Improve YouTube#4347](https://github.com/code-charity/youtube/pull/4347) (open-source YouTube extension, 400k Chrome Web Store users): a sped-up livestream that caught up to the live edge kept stalling and rebuffering. I made it drop back to 1x there, as YouTube's own speed menu does. Released in [v4.2400](https://github.com/code-charity/youtube/releases/tag/v4.2400).
 
 [All merged pull requests →](https://github.com/search?q=is%3Apr+author%3A8rulerstar+is%3Amerged+-user%3A8rulerstar+-repo%3Agaeun-k%2FADS&type=pullrequests)
