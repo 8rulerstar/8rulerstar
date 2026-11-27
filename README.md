@@ -1,6 +1,6 @@
 ## Hi, I'm Byungkun Jang 👋
 
-**Multimedia engineering student (graduating Aug 2027) and computer vision intern · Seoul · open to remote.** I audit the accuracy of pose-estimation metrics and build Unity IL2CPP reverse-engineering support.
+**Multimedia engineering student and computer vision intern · Seoul · open to remote.** I audit the accuracy of pose-estimation metrics and build Unity IL2CPP reverse-engineering support.
 
 - Wrote the first version of supervision's **COCO keypoint mAP** metric, which the maintainer extended and shipped in **0.31.0**
 - Wrote the original **Unity IL2CPP** support in **[rea](https://github.com/morluto/rea)** (reverse-engineering toolkit); the maintainers reworked it and shipped it in **6.8.0**
